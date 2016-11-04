@@ -31,8 +31,10 @@ class MyStash extends Component {
         var that = this;
         return (
             <div>
-                <img src={stashIcon} />
-                {inventory.materials.map(function(mat) {
+                {/*  
+                    <img src={stashIcon} />  
+                */}
+                {that.state.materials.map(function(mat) {
                     return <input 
                         type="number" 
                         value={mat.value} 
@@ -52,6 +54,10 @@ class MyStash extends Component {
                 value: mat.value
             }
         });
+
+        return {
+            materials: matCopy
+        };
     }
 }
 

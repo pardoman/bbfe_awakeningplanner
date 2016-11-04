@@ -4,7 +4,7 @@ import Summon from './Summon';
 // IMPORTAN: ADD NEW SUMMONS TO THE BOTTOM !!!
 // IMPORTAN: ADD NEW SUMMONS TO THE BOTTOM !!!
 
-const SUMMONS = [];
+const SUMMONS = {};
 
 // IMPORTAN: ADD NEW SUMMONS TO THE BOTTOM !!!
 // IMPORTAN: ADD NEW SUMMONS TO THE BOTTOM !!!
@@ -16,7 +16,7 @@ SUMMONS.CECIL = new Summon('Cecil')
     .prismaticHorn(10)
     .calamityGem(10)
     .calamityWrit(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 SUMMONS.LIGHTNING = new Summon('Lightning')
@@ -25,7 +25,7 @@ SUMMONS.LIGHTNING = new Summon('Lightning')
     .rainbowBloom(10)
     .calamityGem(10)
     .prismaticHorn(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 SUMMONS.DELITA = new Summon('Delita')
@@ -34,7 +34,7 @@ SUMMONS.DELITA = new Summon('Delita')
     .rainbowBloom(10)
     .calamityWrit(10)
     .prismaticHorn(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 SUMMONS.DKC = new Summon('Dark Knight Cecil')
@@ -43,7 +43,7 @@ SUMMONS.DKC = new Summon('Dark Knight Cecil')
     .calamityGem(10)
     .prismaticHorn(10)
     .fairiesWrit(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
     
 SUMMONS.RAIN = new Summon('Rain')
@@ -52,7 +52,7 @@ SUMMONS.RAIN = new Summon('Rain')
     .prismaticHorn(8)
     .calamityGem(5)
     .rainbowBloom(3)
-    .divineCystal(3)
+    .divineCrystal(3)
     ;
     
 SUMMONS.LASSWELL = new Summon('Lasswell')
@@ -61,7 +61,7 @@ SUMMONS.LASSWELL = new Summon('Lasswell')
     .prismaticHorn(8)
     .calamityGem(5)
     .rainbowBloom(3)
-    .divineCystal(3)
+    .divineCrystal(3)
     ;
 
 SUMMONS.COD = new Summon('Cloud of Darkness')
@@ -70,7 +70,7 @@ SUMMONS.COD = new Summon('Cloud of Darkness')
     .calamityWrit(10)
     .rainbowBloom(10)
     .prismaticHorn(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 SUMMONS.REFIA = new Summon('Refia')
@@ -79,7 +79,7 @@ SUMMONS.REFIA = new Summon('Refia')
     .fairiesWrit(10)
     .calamityWrit(10)
     .prismaticHorn(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 SUMMONS.LUNETH = new Summon('Luneth')
@@ -88,7 +88,7 @@ SUMMONS.LUNETH = new Summon('Luneth')
     .fairiesWrit(10)
     .rainbowBloom(10)
     .calamityGem(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 SUMMONS.EXDEATH = new Summon('Exdeath')
@@ -97,7 +97,7 @@ SUMMONS.EXDEATH = new Summon('Exdeath')
     .calamityGem(10)
     .prismaticHorn(10)
     .fairiesWrit(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 SUMMONS.BARTZ = new Summon('Bartz')
@@ -106,7 +106,7 @@ SUMMONS.BARTZ = new Summon('Bartz')
     .fairiesWrit(10)
     .rainbowBloom(10)
     .calamityGem(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 SUMMONS.CHIZURU = new Summon('Chizuru')
@@ -115,7 +115,7 @@ SUMMONS.CHIZURU = new Summon('Chizuru')
     .calamityWrit(10)
     .prismaticHorn(10)
     .rainbowBloom(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 SUMMONS.FIRION = new Summon('Firion')
@@ -124,7 +124,7 @@ SUMMONS.FIRION = new Summon('Firion')
     .fairiesWrit(10)
     .rainbowBloom(10)
     .calamityGem(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 SUMMONS.GARLAND = new Summon('Garland')
@@ -133,7 +133,7 @@ SUMMONS.GARLAND = new Summon('Garland')
     .calamityWrit(10)
     .rainbowBloom(10)
     .prismaticHorn(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 SUMMONS.WOL = new Summon('Warrior of Light')
@@ -142,7 +142,7 @@ SUMMONS.WOL = new Summon('Warrior of Light')
     .prismaticHorn(10)
     .calamityGem(10)
     .calamityWrit(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 SUMMONS.KEFKA = new Summon('Kefka')
@@ -151,7 +151,7 @@ SUMMONS.KEFKA = new Summon('Kefka')
     .calamityGem(10)
     .prismaticHorn(10)
     .fairiesWrit(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 SUMMONS.TERRA = new Summon('Terra')
@@ -160,7 +160,7 @@ SUMMONS.TERRA = new Summon('Terra')
     .fairiesWrit(10)
     .calamityWrit(10)
     .prismaticHorn(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 SUMMONS.VAAN = new Summon('Vaan')
@@ -169,7 +169,7 @@ SUMMONS.VAAN = new Summon('Vaan')
     .fairiesWrit(10)
     .rainbowBloom(10)
     .calamityGem(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 SUMMONS.SNOW = new Summon('Snow')
@@ -178,12 +178,21 @@ SUMMONS.SNOW = new Summon('Snow')
     .rainbowBloom(10)
     .calamityGem(10)
     .prismaticHorn(5)
-    .divineCystal(5)
+    .divineCrystal(5)
     ;
 
 
 // IMPORTAN: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTAN: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTAN: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
+
+
+// Map ids into Summon() object
+for (var summonKey in SUMMONS) {
+    if (SUMMONS.hasOwnProperty(summonKey)) {
+        var data = SUMMONS[summonKey];
+        SUMMONS[data.id] = data;
+    }
+}
 
 export default SUMMONS;

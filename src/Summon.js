@@ -2,23 +2,32 @@
 import AweConst from './Const';
 
 var SUMMON_ID = 100; // DON'T CHANGE THIS VALUE!!! -- IT'S USED FOR PERSISTENCY
+var INITIAL_SUMMON_ID = SUMMON_ID;
 
 class Summon {
 
     constructor(_name) {
         this.id = SUMMON_ID++;
         this.name = _name;
+
+        this.fairiesWrit(0);
+        this.prismaticHorn(0);
+        this.calamityGem(0);
+        this.rainbowBloom(0);
+        this.calamityWrit(0);
+        this.divineCrystal(0);
     };
 
     id = 0;
     name = '';
     src = '';
-    materials = [0,0,0,0,0,0];
+    materials = [];
 
     setImage = function(_src) {
         this.src = _src;
         return this;
     };
+
     fairiesWrit = function(count) {
         this.materials[AweConst.FairiesWrit.id] = count;
         return this;
@@ -46,6 +55,11 @@ class Summon {
 
     getMaterialCount = function(materialId) {
         return this.materials[materialId] || 0;
+    };
+
+    static getRandomSummonId = function() {
+        return INITIAL_SUMMON_ID + 
+            (Math.floor(Math.random() * (SUMMON_ID - INITIAL_SUMMON_ID)) | 0);
     }
 }
 

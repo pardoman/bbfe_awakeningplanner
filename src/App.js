@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import AweHeader from './AwakeningHeader';
+import AweHeader from './AwaHeader';
+import MySummons from './MySummons';
 import MyStash from './MyStash';
+import MyPlanner from './MyPlanner';
 
 class App extends Component {
   render() {
@@ -19,12 +21,10 @@ class App extends Component {
             <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" />
           </div>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <AweHeader />
+        <MySummons />
         <MyStash />
         <AweHeader />
+        <MyPlanner />
       </div>
     );
   }

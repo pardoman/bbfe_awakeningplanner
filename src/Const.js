@@ -35,12 +35,12 @@ class AweConsts {
     };
 
     materials = [
-        this.FairiesWrit, 
-        this.PrismaticHorn,
-        this.CalamityGem,
-        this.RainbowBloom,
-        this.CalamityWrit,
-        this.DivineCrystal,
+        this.FairiesWrit,   // 0
+        this.PrismaticHorn, // 1
+        this.CalamityGem,   // 2
+        this.RainbowBloom,  // 3
+        this.CalamityWrit,  // 4
+        this.DivineCrystal, // 5
     ];
 
 }
