@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SummonView.css';
 
 import inventory from './Inventory';
 import SummonData from './Summons';
@@ -7,34 +8,33 @@ class SummonView extends Component {
     
     constructor(props){
         super(props)
-        this.state = { summonId: props.summonId };
+        this.state = { summonId: props.summonId, summonKey: props.summonKey };
         this.onRemoveThisSummon = this.onRemoveThisSummon.bind(this);
     };
 
     render() {
         var summonData = this.getSummonData(this.state.summonId);
         return (
-            <div>
+            <div className="Summon-Card">
+                <img src={summonData.src} /> 
                 {summonData.materials.map(function(matCount, index) {
-                    return <input 
-                        type="number" 
+                    return <input className="Material-Requirement"
                         value={matCount}
                         key={index}
                         readOnly
                     />;
                 })}
-                <button onClick={this.onRemoveThisSummon}>
-                    (-)
+                <button 
+                    className="Button-Remove-Summon" 
+                    onClick={this.onRemoveThisSummon}>
+                    ✕
                 </button>
             </div>
         );
     }
 
     onRemoveThisSummon() {
-        // May delete the "wrong" summon, but will always be of the same type
-        // Meaning, If I have 3 Cecils, then I will delete a Cecil for sure,
-        // but maybe not the one that I clicked on. Oh well.
-        inventory.removeSummon( this.state.summonId );
+        inventory.removeSummon( this.state.summonId, this.state.summonKey );
     }
 
     getNewStateObject() {

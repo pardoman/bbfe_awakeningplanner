@@ -1,0 +1,24 @@
+.Summon-Card {
+    height: 7rem;
+}
+
+.Summon-Card * {
+    vertical-align: middle;
+}
+
+.Material-Requirement {
+    font-size: 3rem;
+    width: 4rem;
+    text-align: center;
+    margin: 3px;
+}
+
+.Button-Remove-Summon {
+    padding: 5px;
+    margin-left: 1rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+}
+
+

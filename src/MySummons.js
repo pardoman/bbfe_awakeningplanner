@@ -28,14 +28,18 @@ class MySummons extends Component {
                 Add Summon!
               </button>
               {that.state.summons.map(function(id, index) {
-                  return <SummonView summonId={id} key={index} />;
+                  var summonKey = that.state.summonKeys[index];
+                  return <SummonView summonId={id} key={summonKey} summonKey={summonKey} />;
               })}
             </div>
         );
     }
 
     getNewStateObject() {
-      return { summons: inventory.summons.concat() };
+      return { 
+        summons: inventory.summons.concat(), 
+        summonKeys: inventory.summonKeys.concat()  
+      };
     }
 
     onAddSummon(event) {

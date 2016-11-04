@@ -5,12 +5,16 @@ import SummonData from './Summons';
 const STORAGE_PREFIX_AWE_MAT = "inventory-awe-mat-";
 const STORAGE_SUMMONS = "inventory-my-summons";
 
+var nextSummonInventoryId = 1; // Stupid React and their fucking Component keys
+
 class Inventory {
     
     materials = [];
     summons = [];
+    summonKeys = []; // runtime bookeeping array. No need to persist.
     listeners = [];
 
+    //material
     update = function(aweMatId, value) {
         // Negatives not allowed
         value = Math.max(0, value);
@@ -19,16 +23,26 @@ class Inventory {
         this.notifyListeners();
     };
 
+    //summon
     addSummon = function(summonId) {
-        this.summons.push(summonId);
+        this.summons.unshift(summonId);
+        this.summonKeys.unshift(nextSummonInventoryId++);
         localStorage.setItem(STORAGE_SUMMONS , JSON.stringify(this.summons));
         this.notifyListeners();
     };
 
-    removeSummon = function(summonId) {
-        var index = this.summons.indexOf(summonId);
+    //summon
+    removeSummon = function(summonId, summonKey) {
+        var index;
+        if (summonKey) {
+            index = this.summonKeys.indexOf(summonKey);
+        }
+        if (index === -1) {
+            index = this.summons.indexOf(summonId);
+        }
         if (index !== -1) {
             this.summons.splice(index, 1);
+            this.summonKeys.splice(index, 1);
             localStorage.setItem(STORAGE_SUMMONS , JSON.stringify(this.summons));
             this.notifyListeners();
         }
@@ -99,6 +113,9 @@ AweConst.materials.forEach(function(mat){
 var loadedSummons = localStorage.getItem(STORAGE_SUMMONS);
 if (loadedSummons) {
     myInventory.summons = JSON.parse(loadedSummons);
+    myInventory.summonKeys = myInventory.summons.map(function(){
+        return nextSummonInventoryId++;
+    });
 }
 
 export default myInventory;
