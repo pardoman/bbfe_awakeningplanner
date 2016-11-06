@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import inventory from './Inventory';
+import './table.css';
 
 class MyPlanner extends Component {
 
@@ -21,19 +21,20 @@ class MyPlanner extends Component {
     render() {
         var that = this;
         return (
-            <div>
-                {/*  
-                    <img src={stashIcon} />  
-                */}
+            <tr>
+                <td></td>
                 {that.state.materials.map(function(count, index) {
-                    return <input 
-                        type="number" 
-                        value={count} 
-                        key={index}
-                        readOnly
-                    />;
+                    return  <td key={index}>
+                                <input 
+                                    className="tableCell"
+                                    type="number" 
+                                    value={count} 
+                                    readOnly
+                                />
+                            </td>;
                 })}
-            </div>
+                <td></td>
+            </tr>
         );
     };
 

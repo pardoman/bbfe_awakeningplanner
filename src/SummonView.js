@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import './SummonView.css';
 
 import inventory from './Inventory';
 import SummonData from './Summons';
+
+import './SummonView.css';
+import './table.css';
+
 
 class SummonView extends Component {
     
@@ -15,21 +18,27 @@ class SummonView extends Component {
     render() {
         var summonData = this.getSummonData(this.state.summonId);
         return (
-            <div className="Summon-Card">
-                <img src={summonData.src} /> 
+            <tr>
+                <td>
+                    <img src={summonData.src} className="tableCellImage" alt={summonData.name} /> 
+                </td>
                 {summonData.materials.map(function(matCount, index) {
-                    return <input className="Material-Requirement"
-                        value={matCount}
-                        key={index}
-                        readOnly
-                    />;
+                    return <td key={index}>
+                                <input
+                                    className="tableCell"
+                                    value={matCount}
+                                    readOnly
+                                />
+                            </td>;
                 })}
-                <button 
-                    className="Button-Remove-Summon" 
-                    onClick={this.onRemoveThisSummon}>
-                    ✕
-                </button>
-            </div>
+                <td>
+                    <button 
+                        className="Button-Remove-Summon" 
+                        onClick={this.onRemoveThisSummon}>
+                        ✕
+                    </button>
+                </td>
+            </tr>
         );
     }
 

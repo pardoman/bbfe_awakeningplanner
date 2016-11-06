@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
 
-import AweHeader from './AwaHeader';
-import MySummons from './MySummons';
-import MyStash from './MyStash';
-import MyPlanner from './MyPlanner';
+import AddSummon from './AddSummon';
+import Content from './Content';
+
+import './App.css';
+import './table.css';
 
 class App extends Component {
   render() {
@@ -13,18 +13,18 @@ class App extends Component {
         <div className="App-header">
           <h2>FFBE Awakening Planner</h2>
           <div>
-            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" />
-            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" />
-            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" />
-            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" />
-            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" />
-            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" />
+            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" alt="6start" />
+            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" alt="6start" />
+            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" alt="6start" />
+            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" alt="6start" />
+            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" alt="6start" />
+            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" alt="6start" />
           </div>
         </div>
-        <MySummons />
-        <MyStash />
-        <AweHeader />
-        <MyPlanner />
+        <AddSummon />
+        <table className="centerTable">
+          <Content />
+        </table>
       </div>
     );
   }

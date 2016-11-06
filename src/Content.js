@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 
 import inventory from './Inventory';
-import Summon from './Summon';
 import SummonView from './SummonView';
 
-class MySummons extends Component {
+import MyStash from './MyStash';
+import AweHeader from './AwaHeader';
+import MyPlanner from './MyPlanner';
+
+import './table.css';
+
+class Content extends Component {
     constructor(props){
         super(props)
         this.state = this.getNewStateObject();
-        this.onAddSummon = this.onAddSummon.bind(this);
         this.onInventoryChange = this.onInventoryChange.bind(this);
     };
 
@@ -23,17 +27,20 @@ class MySummons extends Component {
     render() {
         var that = this;
         return (
-            <div>
-              <button onClick={that.onAddSummon}>
-                Add Summon!
-              </button>
-              {that.state.summons.map(function(id, index) {
-                  var summonKey = that.state.summonKeys[index];
-                  return <SummonView summonId={id} key={summonKey} summonKey={summonKey} />;
-              })}
-            </div>
+            <tbody>
+
+                {that.state.summons.map(function(id, index) {
+                      var summonKey = that.state.summonKeys[index];
+                      return <SummonView summonId={id} key={summonKey} summonKey={summonKey} />;
+                })}
+
+                <MyStash />
+                <AweHeader />
+                <MyPlanner />
+            
+            </tbody>
         );
-    }
+    };
 
     getNewStateObject() {
       return { 
@@ -42,13 +49,10 @@ class MySummons extends Component {
       };
     }
 
-    onAddSummon(event) {
-      inventory.addSummon( Summon.getRandomSummonId() );
-    }
-
     onInventoryChange() {
       this.setState( this.getNewStateObject() );
     }
+
 }
 
-export default MySummons;
+export default Content;

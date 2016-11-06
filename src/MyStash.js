@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import stashIcon from './images/items.png';
-
 import inventory from './Inventory';
+import './table.css';
 
 class MyStash extends Component {
 
@@ -12,14 +11,14 @@ class MyStash extends Component {
     }
 
     handleChange(event) {
-        var newValue = parseInt(event.currentTarget.value);
+        var newValue = parseInt(event.currentTarget.value, 10);
         if (!Number.isInteger(newValue))
             return;
 
         // Negatives not allowed
         newValue = Math.max(0, newValue);
         
-        var materialId = parseInt(event.currentTarget.getAttribute('data-material-id'));
+        var materialId = parseInt(event.currentTarget.getAttribute('data-material-id'), 10);
         if (!Number.isInteger(materialId))
             return;
 
@@ -30,20 +29,21 @@ class MyStash extends Component {
     render() {
         var that = this;
         return (
-            <div>
-                {/*  
-                    <img src={stashIcon} />  
-                */}
+            <tr>
+                <td></td>
                 {that.state.materials.map(function(mat) {
-                    return <input 
-                        type="number" 
-                        value={mat.value} 
-                        key={mat.id}
-                        data-material-id={mat.id}
-                        onChange={that.handleChange} 
-                    />;
+                    return  <td key={mat.id}>
+                                <input 
+                                    className="tableCell"
+                                    type="number" 
+                                    value={mat.value}
+                                    data-material-id={mat.id}
+                                    onChange={that.handleChange} 
+                                />
+                            </td>;
                 })}
-            </div>
+                <td></td>
+            </tr>
         );
     };
 

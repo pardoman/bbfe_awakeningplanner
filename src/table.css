@@ -1,0 +1,16 @@
+.centerTable {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tableCell {
+    width: 100%;
+    height: 40px;
+    text-align: center;
+}
+
+.tableCellImage {
+    max-width: 70px;
+}
+
