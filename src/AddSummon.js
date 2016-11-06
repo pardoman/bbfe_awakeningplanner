@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import inventory from './Inventory';
 import SUMMONS from './Summons';
 
+import './AddSummon.css';
+
 class AddSummon extends Component {
     constructor(props){
         super(props)
@@ -29,14 +31,18 @@ class AddSummon extends Component {
                 
                 <br />
                 
-                {that.state.adding && SUMMONS.ALL.map(function(summon){
-                    return <img 
-                            src={summon.src} 
-                            onClick={that.onSelection} 
-                            data-summon-id={summon.id}
-                            key={summon.id}
-                        />
-                })}
+                <div className="Choose-Summon-Container" >
+                    {that.state.adding && SUMMONS.ALL.map(function(summon){
+                        return <div className="Choose-Summon-Option">
+                                    <img 
+                                        src={summon.src} 
+                                        onClick={that.onSelection} 
+                                        data-summon-id={summon.id}
+                                        key={summon.id}
+                                    />
+                                </div>
+                    })}
+                </div>
             </div>
         );
     }

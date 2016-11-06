@@ -1,0 +1,15 @@
+.Choose-Summon-Container {
+    display: flex;
+    overflow-x: scroll;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.Choose-Summon-Option {
+    cursor: pointer;
+    align-self: center;
+}
+
+.Choose-Summon-Option:hover {
+    border: solid 1px red;
+}
