@@ -3,13 +3,9 @@ import React, { Component } from 'react';
 import inventory from './Inventory';
 import SummonView from './SummonView';
 
-import MyStash from './MyStash';
-import AweHeader from './AwaHeader';
-import MyPlanner from './MyPlanner';
-
 import './table.css';
 
-class Content extends Component {
+class ContentSummons extends Component {
     constructor(props){
         super(props)
         this.state = this.getNewStateObject();
@@ -28,16 +24,19 @@ class Content extends Component {
         var that = this;
         return (
             <tbody>
-
+                <tr>
+                  <td></td>
+                  {that.state.summons.length > 0 &&
+                      <td colSpan="6">Your summons</td>
+                  }
+                  {that.state.summons.length === 0 &&
+                      <td colSpan="6">Add summons you want to awake!</td>
+                  }
+                </tr>
                 {that.state.summons.map(function(id, index) {
                       var summonKey = that.state.summonKeys[index];
                       return <SummonView summonId={id} key={summonKey} summonKey={summonKey} />;
                 })}
-
-                <MyStash />
-                <AweHeader />
-                <MyPlanner />
-            
             </tbody>
         );
     };
@@ -55,4 +54,4 @@ class Content extends Component {
 
 }
 
-export default Content;
+export default ContentSummons;

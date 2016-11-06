@@ -16,8 +16,8 @@ class AddSummon extends Component {
         return (
             <div>
                 <div className="Choose-Summon-Container" >
-                    {SUMMONS.ALL.map(function(summon){
-                        return <div className="Choose-Summon-Option" key={summon.id} >
+                    {SUMMONS.ALL.map(function(summon, index){
+                        return <div key={index} className="Choose-Summon-Option" >
                                     <img 
                                         src={summon.src} 
                                         alt={summon.name}
