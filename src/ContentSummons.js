@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import inventory from './Inventory';
 import SummonView from './SummonView';
+import AweHeader from './AwaHeader';
 
 import './table.css';
 
@@ -22,21 +23,24 @@ class ContentSummons extends Component {
 
     render() {
         var that = this;
+        var summonCount = that.state.summons.length;
+        var hasSummons = (summonCount > 0); 
         return (
             <tbody>
                 <tr>
-                  <td></td>
-                  {that.state.summons.length > 0 &&
-                      <td colSpan="6">Your summons</td>
-                  }
-                  {that.state.summons.length === 0 &&
-                      <td colSpan="6">Add summons you want to awake!</td>
-                  }
+                    <td></td>
+                    {hasSummons &&
+                        <td colSpan="6">Your summons ({summonCount})</td>
+                    }
+                    {!hasSummons &&
+                        <td colSpan="6">Add summons you want to awake!</td>
+                    }
                 </tr>
                 {that.state.summons.map(function(id, index) {
                       var summonKey = that.state.summonKeys[index];
                       return <SummonView summonId={id} key={summonKey} summonKey={summonKey} />;
                 })}
+                {hasSummons && <AweHeader />}
             </tbody>
         );
     };

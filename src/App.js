@@ -11,6 +11,8 @@ import ContentSummons from './ContentSummons';
 import './App.css';
 import './table.css';
 
+import refiaAnimation from './images/refia_victory.gif';
+
 class App extends Component {
   render() {
     return (
@@ -42,6 +44,10 @@ class App extends Component {
         <table className="centerTable">
           <ContentSummons />
         </table>
+
+        <div className="footer">
+          <img src={refiaAnimation} alt="refia_victory" />
+        </div>
 
       </div>
     );

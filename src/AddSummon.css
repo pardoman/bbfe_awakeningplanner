@@ -4,6 +4,9 @@
     width: 90%;
     margin-left: 5%;
     margin-top: 30px;
+    border-radius: 10px;
+    border: solid 2px gainsboro;
+    background-color: white;
 }
 
 .Choose-Summon-Option {
@@ -12,5 +15,6 @@
 }
 
 .Choose-Summon-Option:hover {
-    border: solid 1px red;
+    border: solid 1px #42b71d;
+    border-radius: 10px;
 }
