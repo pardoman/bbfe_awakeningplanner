@@ -38,6 +38,7 @@ body {
   display: flex;
   justify-content: center;
   background-color: #180e0d;
+  overflow-x: hidden;
 }
 
 .exviusWikiImage {
