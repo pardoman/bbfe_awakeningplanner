@@ -27,6 +27,27 @@ body {
   to { transform: rotate(360deg); }
 }
 
-.footer {
+.refia_cute {
    margin-top: 50px;
+   border-top: dashed 1px black;
+   border-bottom: dashed 1px black;
+   margin-bottom: 50px;
+}
+
+.exviusWikiContainer {
+  display: flex;
+  justify-content: center;
+  background-color: #180e0d;
+}
+
+.exviusWikiImage {
+  height: 120px;
+}
+
+.footer-credits {
+  margin: 20px 0;
+}
+
+.bottom-padding {
+  margin-bottom: 50px;
 }

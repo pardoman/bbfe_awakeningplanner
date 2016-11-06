@@ -21,6 +21,7 @@ class AddSummon extends Component {
                                     <img 
                                         src={summon.src} 
                                         alt={summon.name}
+                                        title={summon.name} 
                                         data-summon-id={summon.id}
                                         onClick={that.onSelection} 
                                     />

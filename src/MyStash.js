@@ -36,6 +36,7 @@ class MyStash extends Component {
                                 <input 
                                     className="tableCell"
                                     type="number" 
+                                    pattern="\d*"
                                     value={mat.value}
                                     data-material-id={mat.id}
                                     onChange={that.handleChange} 
