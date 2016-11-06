@@ -24,11 +24,12 @@ class MyPlanner extends Component {
             <tr>
                 <td></td>
                 {that.state.materials.map(function(count, index) {
-                    return  <td key={index}>
+                    var isOkay = (count <= 0);
+                    return  <td key={index} >
                                 <input 
-                                    className="tableCell"
-                                    type="number" 
-                                    value={count} 
+                                    className={"tableCell tc-planner " + (isOkay ? 'tc-okay' : 'tc-missing')}
+                                    type="text" 
+                                    value={ Math.max(count,0) } 
                                     readOnly
                                 />
                             </td>;

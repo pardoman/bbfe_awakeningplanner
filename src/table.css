@@ -10,6 +10,18 @@
     text-align: center;
 }
 
+.tc-planner {
+    font-size: 20px;
+}
+
+.tc-okay {
+    background-color: #b4f74d;
+}
+
+.tc-missing {
+    background-color: #ef9a9a;
+}
+
 .tableCellImage {
     max-width: 70px;
 }
