@@ -6,9 +6,10 @@ var INITIAL_SUMMON_ID = SUMMON_ID;
 
 class Summon {
 
-    constructor(_name) {
+    constructor(_name, _alias) {
         this.id = SUMMON_ID++;
         this.name = _name;
+        this.alias = _alias || _name.toLocaleLowerCase();
 
         this.fairiesWrit(0);
         this.prismaticHorn(0);
@@ -20,6 +21,7 @@ class Summon {
 
     id = 0;
     name = '';
+    alias = '';
     src = '';
     materials = [];
 

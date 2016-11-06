@@ -37,7 +37,7 @@ SUMMONS.DELITA = new Summon('Delita')
     .divineCrystal(5)
     ;
 
-SUMMONS.DKC = new Summon('Dark Knight Cecil')
+SUMMONS.DKC = new Summon('Dark Knight Cecil', 'dkc')
     .setImage('https://exviuswiki.com/images/9/96/Dark_Knight_Cecil-6.png')
     .calamityWrit(20)
     .calamityGem(10)
@@ -64,7 +64,7 @@ SUMMONS.LASSWELL = new Summon('Lasswell')
     .divineCrystal(3)
     ;
 
-SUMMONS.COD = new Summon('Cloud of Darkness')
+SUMMONS.COD = new Summon('Cloud of Darkness', 'cod')
     .setImage('https://exviuswiki.com/images/2/24/Cloud_of_Darkness-6.png')
     .calamityGem(20)
     .calamityWrit(10)
@@ -136,7 +136,7 @@ SUMMONS.GARLAND = new Summon('Garland')
     .divineCrystal(5)
     ;
 
-SUMMONS.WOL = new Summon('Warrior of Light')
+SUMMONS.WOL = new Summon('Warrior of Light', 'wol')
     .setImage('https://exviuswiki.com/images/d/df/Warrior_of_Light-6.png')
     .fairiesWrit(20)
     .prismaticHorn(10)
