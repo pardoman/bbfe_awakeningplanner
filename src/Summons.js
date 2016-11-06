@@ -187,11 +187,15 @@ SUMMONS.SNOW = new Summon('Snow')
 // IMPORTAN: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 
 
+// Generate Array with all Summons available
+SUMMONS.ALL = [];
+// AND 
 // Map ids into Summon() object
 for (var summonKey in SUMMONS) {
     if (SUMMONS.hasOwnProperty(summonKey)) {
         var data = SUMMONS[summonKey];
         SUMMONS[data.id] = data;
+        SUMMONS.ALL.push(data);
     }
 }
 
