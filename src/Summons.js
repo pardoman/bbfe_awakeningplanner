@@ -11,8 +11,9 @@ const SUMMONS = {};
 // IMPORTAN: ADD NEW SUMMONS TO THE BOTTOM !!!
 
 
+import imgLightning from './images/summons/Lightning-6.png';
 SUMMONS.LIGHTNING = new Summon('Lightning')
-    .setImage('https://exviuswiki.com/images/6/6d/Lightning-6.png')
+    .setImage(imgLightning)
     .fairiesWrit(20)
     .rainbowBloom(10)
     .calamityGem(10)
@@ -20,8 +21,9 @@ SUMMONS.LIGHTNING = new Summon('Lightning')
     .divineCrystal(5)
     ;
 
+import imgDelita from './images/summons/Delita-6.png';
 SUMMONS.DELITA = new Summon('Delita')
-    .setImage('https://exviuswiki.com/images/0/0c/Delita-6.png')
+    .setImage(imgDelita)
     .fairiesWrit(20)
     .rainbowBloom(10)
     .calamityWrit(10)
@@ -29,8 +31,9 @@ SUMMONS.DELITA = new Summon('Delita')
     .divineCrystal(5)
     ;
 
+import imgRamza from './images/summons/Ramza-6.png';
 SUMMONS.RAMZA = new Summon('Ramza')
-    .setImage('https://exviuswiki.com/images/1/12/Ramza-6.png')
+    .setImage(imgRamza)
     .fairiesWrit(20)
     .rainbowBloom(10)
     .calamityWrit(10)
@@ -38,8 +41,9 @@ SUMMONS.RAMZA = new Summon('Ramza')
     .divineCrystal(5)
     ;
 
+import imgCecil from './images/summons/Cecil-6.png';
 SUMMONS.CECIL = new Summon('Cecil')
-    .setImage('https://exviuswiki.com/images/e/ee/Cecil-6.png')
+    .setImage(imgCecil)
     .fairiesWrit(20)
     .prismaticHorn(10)
     .calamityGem(10)
@@ -47,8 +51,9 @@ SUMMONS.CECIL = new Summon('Cecil')
     .divineCrystal(5)
     ;
 
+import imgdkc from './images/summons/Dark_Knight_Cecil-6.png';
 SUMMONS.DKC = new Summon('Dark Knight Cecil', 'dkc')
-    .setImage('https://exviuswiki.com/images/9/96/Dark_Knight_Cecil-6.png')
+    .setImage(imgdkc)
     .calamityWrit(20)
     .calamityGem(10)
     .prismaticHorn(10)
@@ -56,8 +61,9 @@ SUMMONS.DKC = new Summon('Dark Knight Cecil', 'dkc')
     .divineCrystal(5)
     ;
     
+import imgcod from './images/summons/Cloud_of_Darkness-6.png';
 SUMMONS.COD = new Summon('Cloud of Darkness', 'cod')
-    .setImage('https://exviuswiki.com/images/2/24/Cloud_of_Darkness-6.png')
+    .setImage(imgcod)
     .calamityGem(20)
     .calamityWrit(10)
     .rainbowBloom(10)
@@ -65,8 +71,9 @@ SUMMONS.COD = new Summon('Cloud of Darkness', 'cod')
     .divineCrystal(5)
     ;
 
+import imgRefia from './images/summons/Refia-6.png';
 SUMMONS.REFIA = new Summon('Refia')
-    .setImage('https://exviuswiki.com/images/c/c9/Refia-6.png')
+    .setImage(imgRefia)
     .rainbowBloom(20)
     .fairiesWrit(10)
     .calamityWrit(10)
@@ -74,8 +81,9 @@ SUMMONS.REFIA = new Summon('Refia')
     .divineCrystal(5)
     ;
 
+import imgLuneth from './images/summons/Luneth-6.png';
 SUMMONS.LUNETH = new Summon('Luneth')
-    .setImage('https://exviuswiki.com/images/9/9a/Luneth-6.png')
+    .setImage(imgLuneth)
     .prismaticHorn(20)
     .fairiesWrit(10)
     .rainbowBloom(10)
@@ -83,8 +91,9 @@ SUMMONS.LUNETH = new Summon('Luneth')
     .divineCrystal(5)
     ;
 
+import imgBartz from './images/summons/Bartz-6.png';
 SUMMONS.BARTZ = new Summon('Bartz')
-    .setImage('https://exviuswiki.com/images/1/16/Bartz-6.png')
+    .setImage(imgBartz)
     .prismaticHorn(20)
     .fairiesWrit(10)
     .rainbowBloom(10)
@@ -92,8 +101,9 @@ SUMMONS.BARTZ = new Summon('Bartz')
     .divineCrystal(5)
     ;
 
+import imgExdeath from './images/summons/Exdeath-6.png';
 SUMMONS.EXDEATH = new Summon('Exdeath')
-    .setImage('https://exviuswiki.com/images/e/eb/Exdeath-6.png')
+    .setImage(imgExdeath)
     .calamityWrit(20)
     .calamityGem(10)
     .prismaticHorn(10)
@@ -101,8 +111,9 @@ SUMMONS.EXDEATH = new Summon('Exdeath')
     .divineCrystal(5)
     ;
 
+import imgRain from './images/summons/Rain-6.png';
 SUMMONS.RAIN = new Summon('Rain')
-    .setImage('https://exviuswiki.com/images/5/5e/Rain-6.png')
+    .setImage(imgRain)
     .fairiesWrit(15)
     .prismaticHorn(8)
     .calamityGem(5)
@@ -110,8 +121,9 @@ SUMMONS.RAIN = new Summon('Rain')
     .divineCrystal(3)
     ;
 
+import imgChizuru from './images/summons/Chizuru-6.png';
 SUMMONS.CHIZURU = new Summon('Chizuru')
-    .setImage('https://exviuswiki.com/images/a/af/Chizuru-6.png')
+    .setImage(imgChizuru)
     .calamityGem(20)
     .calamityWrit(10)
     .prismaticHorn(10)
@@ -119,8 +131,9 @@ SUMMONS.CHIZURU = new Summon('Chizuru')
     .divineCrystal(5)
     ;
 
+import imgFirion from './images/summons/Firion-6.png';
 SUMMONS.FIRION = new Summon('Firion')
-    .setImage('https://exviuswiki.com/images/c/ce/Firion-6.png')
+    .setImage(imgFirion)
     .prismaticHorn(20)
     .fairiesWrit(10)
     .rainbowBloom(10)
@@ -128,8 +141,9 @@ SUMMONS.FIRION = new Summon('Firion')
     .divineCrystal(5)
     ;
   
+import imgLasswell from './images/summons/Lasswell-6.png';
 SUMMONS.LASSWELL = new Summon('Lasswell')
-    .setImage('https://exviuswiki.com/images/a/a8/Lasswell-6.png')
+    .setImage(imgLasswell)
     .fairiesWrit(15)
     .prismaticHorn(8)
     .calamityGem(5)
@@ -137,8 +151,9 @@ SUMMONS.LASSWELL = new Summon('Lasswell')
     .divineCrystal(3)
     ;
 
+import imgwol from './images/summons/Warrior_of_Light-6.png';
 SUMMONS.WOL = new Summon('Warrior of Light', 'wol')
-    .setImage('https://exviuswiki.com/images/d/df/Warrior_of_Light-6.png')
+    .setImage(imgwol)
     .fairiesWrit(20)
     .prismaticHorn(10)
     .calamityGem(10)
@@ -146,8 +161,9 @@ SUMMONS.WOL = new Summon('Warrior of Light', 'wol')
     .divineCrystal(5)
     ;
 
+import imgGarland from './images/summons/Garland-6.png';
 SUMMONS.GARLAND = new Summon('Garland')
-    .setImage('https://exviuswiki.com/images/0/09/Garland-6.png')
+    .setImage(imgGarland)
     .calamityGem(20)
     .calamityWrit(10)
     .rainbowBloom(10)
@@ -155,8 +171,9 @@ SUMMONS.GARLAND = new Summon('Garland')
     .divineCrystal(5)
     ;
 
+import imgTerra from './images/summons/Terra-6.png';
 SUMMONS.TERRA = new Summon('Terra')
-    .setImage('https://exviuswiki.com/images/e/ef/Terra-6.png')
+    .setImage(imgTerra)
     .rainbowBloom(20)
     .fairiesWrit(10)
     .calamityWrit(10)
@@ -164,8 +181,9 @@ SUMMONS.TERRA = new Summon('Terra')
     .divineCrystal(5)
     ;
 
+import imgKefka from './images/summons/Kefka-6.png';
 SUMMONS.KEFKA = new Summon('Kefka')
-    .setImage('https://exviuswiki.com/images/c/c6/Kefka-6.png')
+    .setImage(imgKefka)
     .calamityWrit(20)
     .calamityGem(10)
     .prismaticHorn(10)
@@ -173,8 +191,9 @@ SUMMONS.KEFKA = new Summon('Kefka')
     .divineCrystal(5)
     ;
 
+import imgVaan from './images/summons/Vaan-6.png';
 SUMMONS.VAAN = new Summon('Vaan')
-    .setImage('https://exviuswiki.com/images/5/55/Vaan-6.png')
+    .setImage(imgVaan)
     .prismaticHorn(20)
     .fairiesWrit(10)
     .rainbowBloom(10)
@@ -182,8 +201,9 @@ SUMMONS.VAAN = new Summon('Vaan')
     .divineCrystal(5)
     ;
 
+import imgSnow from './images/summons/Snow-6.png';
 SUMMONS.SNOW = new Summon('Snow')
-    .setImage('https://exviuswiki.com/images/3/3d/Snow-6.png')
+    .setImage(imgSnow)
     .fairiesWrit(20)
     .rainbowBloom(10)
     .calamityGem(10)

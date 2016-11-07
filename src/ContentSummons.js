@@ -33,7 +33,7 @@ class ContentSummons extends Component {
                         <td colSpan="6">Your summons ({summonCount})</td>
                     }
                     {!hasSummons &&
-                        <td colSpan="6">Add summons you want to awake!</td>
+                        <td colSpan="6">Add the summons you want to awaken!</td>
                     }
                 </tr>
                 {that.state.summons.map(function(id, index) {

@@ -11,6 +11,7 @@ import ContentSummons from './ContentSummons';
 import './App.css';
 import './table.css';
 
+import rarity6 from './images/Rarity-6.png';
 import refiaAnimation from './images/refia_victory.gif';
 
 class App extends Component {
@@ -20,12 +21,12 @@ class App extends Component {
         <div className="App-header">
           <h2>FFBE Awakening Planner</h2>
           <div>
-            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" alt="6start" />
-            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" alt="6start" />
-            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" alt="6start" />
-            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" alt="6start" />
-            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" alt="6start" />
-            <img src="https://exviuswiki.com/images/6/63/Rarity-6.png" alt="6start" />
+            <img src={rarity6} alt="6start" />
+            <img src={rarity6} alt="6start" />
+            <img src={rarity6} alt="6start" />
+            <img src={rarity6} alt="6start" />
+            <img src={rarity6} alt="6start" />
+            <img src={rarity6} alt="6start" />
           </div>
         </div>
         

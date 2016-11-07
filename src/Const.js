@@ -1,4 +1,11 @@
 
+import fairiesWrit  from './images/mats/29px-Icon-Fairies_Writ.png';
+import horn         from './images/mats/32px-Icon-Prismatic_Horn.png';
+import calamityGem  from './images/mats/32px-Icon-Calamity_Gem.png';
+import bloom        from './images/mats/32px-Icon-Rainbow_Bloom.png';
+import calamityWrit from './images/mats/32px-Icon-Calamity_Writ.png';
+import crystal      from './images/mats/32px-Icon-Divine_Crystal.png';
+
 class AweConsts {
 
     /// Materials ///
@@ -6,32 +13,32 @@ class AweConsts {
     FairiesWrit = {
         id: 0,
         name: "Fairies' Writ",
-        src: "https://exviuswiki.com/images/thumb/2/2d/Icon-Fairies%27_Writ.png/29px-Icon-Fairies%27_Writ.png"
+        src: fairiesWrit
     };
     PrismaticHorn = {
         id: 1,
         name: "Prismatic Horn",
-        src: "https://exviuswiki.com/images/thumb/8/87/Icon-Prismatic_Horn.png/32px-Icon-Prismatic_Horn.png"
+        src: horn
     };
     CalamityGem = {
         id: 2,
         name: "Calamity Gem",
-        src: "https://exviuswiki.com/images/thumb/9/90/Icon-Calamity_Gem.png/32px-Icon-Calamity_Gem.png"
+        src: calamityGem
     };
     RainbowBloom = {
         id: 3,
         name: "Rainbow Bloom",
-        src: "https://exviuswiki.com/images/thumb/3/38/Icon-Rainbow_Bloom.png/32px-Icon-Rainbow_Bloom.png"
+        src: bloom
     };
     CalamityWrit = {
         id: 4,
         name: "Calamity Writ",
-        src: "https://exviuswiki.com/images/thumb/5/5d/Icon-Calamity_Writ.png/32px-Icon-Calamity_Writ.png"
+        src: calamityWrit
     };
     DivineCrystal = {
         id: 5,
         name: "Divine Crystal",
-        src: "https://exviuswiki.com/images/thumb/f/fb/Icon-Divine_Crystal.png/32px-Icon-Divine_Crystal.png"
+        src: crystal
     };
 
     materials = [
