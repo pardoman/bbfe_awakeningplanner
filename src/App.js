@@ -13,6 +13,7 @@ import './table.css';
 
 import rarity6 from './images/Rarity-6.png';
 import refiaAnimation from './images/refia_victory.gif';
+import wikiSiteLogo from './images/wiki-site-logo.jpg';
 
 class App extends Component {
   render() {
@@ -59,7 +60,7 @@ class App extends Component {
             <div className="exviusWikiContainer">
               <img
                 className="exviusWikiImage"
-                src="https://exviuswiki.com/skins/Exvius/resources/images/site-logo.jpg" 
+                src={wikiSiteLogo} 
                 alt="exviuswiki.com" />
             </div>
           </a>
