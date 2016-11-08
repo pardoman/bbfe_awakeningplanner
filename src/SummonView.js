@@ -20,7 +20,9 @@ class SummonView extends Component {
         return (
             <tr>
                 <td>
-                    <img src={summonData.src} className="tableCellImage" alt={summonData.name} title={summonData.name} /> 
+                    <a href={summonData.wiki} target="blank">
+                        <img src={summonData.src} className="tableCellImage" alt={summonData.name} title={summonData.name} />
+                    </a> 
                 </td>
                 {summonData.materials.map(function(matCount, index) {
                     return <td key={index}>

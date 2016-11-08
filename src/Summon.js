@@ -29,6 +29,10 @@ class Summon {
         this.src = _src;
         return this;
     };
+    setWiki = function(_src) {
+        this.wiki = _src;
+        return this;
+    };
 
     fairiesWrit = function(count) {
         this.materials[AweConst.FairiesWrit.id] = count;
