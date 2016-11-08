@@ -211,10 +211,46 @@ SUMMONS.SNOW = new Summon('Snow')
     .divineCrystal(5)
     ;
 
+// IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
+// IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
+// IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 
-// IMPORTAN: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
-// IMPORTAN: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
-// IMPORTAN: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
+
+Summon.internal_setNextSummonId(2001);
+
+import imgWhiteWitchFina from './images/summons/White_Witch_Fina-6.png';
+SUMMONS.VLCFINA = new Summon('White Witch Fina', 'vlcfina')
+    .setImage(imgWhiteWitchFina)
+    .rainbowBloom(20)
+    .fairiesWrit(10)
+    .calamityWrit(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
+
+import imgDracuLasswell from './images/summons/Dracu_Lasswell-6.png';
+SUMMONS.DRACULASSWELL = new Summon('Dracu Lasswell')
+    .setImage(imgDracuLasswell)
+    .fairiesWrit(15)
+    .prismaticHorn(8)
+    .calamityGem(5)
+    .rainbowBloom(3)
+    .divineCrystal(3)
+    ;
+
+import imgDemonRain from './images/summons/Demon_Rain-6.png';
+SUMMONS.DEMONRAIN = new Summon('Demon Rain')
+    .setImage(imgDemonRain)
+    .fairiesWrit(15)
+    .prismaticHorn(8)
+    .calamityGem(5)
+    .rainbowBloom(3)
+    .divineCrystal(3)
+    ;
+
+// IMPORTANT: ADD EVENT-EXCLUSIVE SUMMONS JUST OVER THIS COMMENT !!!
+// IMPORTANT: ADD EVENT-EXCLUSIVE SUMMONS JUST OVER THIS COMMENT !!!
+// IMPORTANT: ADD EVENT-EXCLUSIVE SUMMONS JUST OVER THIS COMMENT !!!
 
 
 // Generate Array with all Summons available

@@ -59,9 +59,8 @@ class Summon {
         return this.materials[materialId] || 0;
     };
 
-    static getRandomSummonId = function() {
-        return INITIAL_SUMMON_ID + 
-            (Math.floor(Math.random() * (SUMMON_ID - INITIAL_SUMMON_ID)) | 0);
+    static internal_setNextSummonId = function(value) {
+        SUMMON_ID = value;
     }
 }
 
