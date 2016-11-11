@@ -271,6 +271,17 @@ SUMMONS.DEMONRAIN = new Summon('Demon Rain')
     .divineCrystal(3)
     ;
 
+import imgElza from './images/summons/Unit-Elza-6.png';
+SUMMONS.ELZA = new Summon('Elza')
+    .setImage(imgElza)
+    .setWiki('https://exviuswiki.com/Elza')
+    .prismaticHorn(20)
+    .fairiesWrit(10)
+    .rainbowBloom(10)
+    .calamityGem(5)
+    .divineCrystal(5)
+    ;
+
 // IMPORTANT: ADD EVENT-EXCLUSIVE SUMMONS JUST OVER THIS COMMENT !!!
 // IMPORTANT: ADD EVENT-EXCLUSIVE SUMMONS JUST OVER THIS COMMENT !!!
 // IMPORTANT: ADD EVENT-EXCLUSIVE SUMMONS JUST OVER THIS COMMENT !!!
