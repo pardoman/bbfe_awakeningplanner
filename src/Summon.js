@@ -2,7 +2,6 @@
 import AweConst from './Const';
 
 var SUMMON_ID = 100; // DON'T CHANGE THIS VALUE!!! -- IT'S USED FOR PERSISTENCY
-var INITIAL_SUMMON_ID = SUMMON_ID;
 
 class Summon {
 

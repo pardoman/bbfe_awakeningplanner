@@ -231,6 +231,17 @@ SUMMONS.SNOW = new Summon('Snow')
     .divineCrystal(5)
     ;
 
+import imgGilgamesh from './images/summons/Gilgamesh-6.png';
+SUMMONS.GILGAMESH = new Summon('Gilgamesh')
+    .setImage(imgGilgamesh)
+    .setWiki('https://exviuswiki.com/Gilgamesh')
+    .calamityGem(20)
+    .calamityWrit(10)
+    .prismaticHorn(10)
+    .rainbowBloom(5)
+    .divineCrystal(5)
+    ;
+
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
