@@ -5,6 +5,7 @@ import MyStash from './MyStash';
 import AweHeader from './AwaHeader';
 import MyPlannerHeader from './MyPlannerHeader';
 import MyPlanner from './MyPlanner';
+import FilterSummons from './FilterSummons';
 import AddSummon from './AddSummon';
 import ContentSummons from './ContentSummons';
 
@@ -41,6 +42,7 @@ class App extends Component {
             </tbody>
         </table>
 
+        <FilterSummons />
         <AddSummon />
 
         <table className="centerTable">

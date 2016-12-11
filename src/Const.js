@@ -50,6 +50,37 @@ class AweConsts {
         this.DivineCrystal, // 5
     ];
 
+    Origin = {
+        FF_I:   { name: 'FF I',   id:  1 },
+        FF_II:  { name: 'FF II',  id:  2 },
+        FF_III: { name: 'FF III', id:  3 },
+        FF_IV:  { name: 'FF IV',  id:  4 },
+        FF_V:   { name: 'FF V',   id:  5 },
+        FF_VI:  { name: 'FF VI',  id:  6 },
+        FF_VII: { name: 'FF VII', id:  7 },
+        FF_VIII:{ name: 'FF VIII',id:  8 },
+        FF_IX:  { name: 'FF IX',  id:  9 },
+        FF_X:   { name: 'FF X',   id: 10 },
+        FF_XI:  { name: 'FF XI',  id: 11 },
+        FF_XII: { name: 'FF XII', id: 12 },
+        FF_XIII:{ name: 'FF XIII',id: 13 },
+
+        FF_BE:  { name: 'FF BE',          id: 99 },
+        FF_Tac: { name: 'FF Tactics',     id: 98 },
+        FF_BF:  { name: 'Brave Frontier', id: 97 },
+        FF_T0:  { name: 'FF Type-0',      id: 90 },
+    };
+
+    getOriginName = function(id) {
+        var origins = this.Origin;
+        for (var key in origins) {
+            if (origins[key].id === id) {
+                return origins[key].name;
+            }
+        }
+        return this.Origin.FF_BE.name; // Default to FFBE
+    };
+
 }
 
 export default ( new AweConsts() );

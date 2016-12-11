@@ -23,6 +23,7 @@ class Summon {
     alias = '';
     src = '';
     materials = [];
+    origin = AweConst.Origin.FF_BE.id; // assume FFBE by default
 
     setImage = function(_src) {
         this.src = _src;
@@ -30,6 +31,11 @@ class Summon {
     };
     setWiki = function(_src) {
         this.wiki = _src;
+        return this;
+    };
+
+    setOrigin = function(originObject) {
+        this.origin = originObject.id;
         return this;
     };
 

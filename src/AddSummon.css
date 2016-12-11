@@ -3,11 +3,10 @@
     overflow-x: scroll;
     width: 90%;
     margin-left: 5%;
-    margin-top: 30px;
     border-radius: 10px;
-    border: solid 2px gainsboro;
+    border: solid 1px #18ab29;
     background-color: white;
-    padding: 4px 0;
+    padding: 0;
 }
 
 .Choose-Summon-Option {
