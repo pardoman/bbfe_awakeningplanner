@@ -66,8 +66,8 @@ class AweConsts {
         FF_XIII:{ name: 'FF XIII',id: 13 },
 
         FF_BE:  { name: 'FF BE',          id: 99 },
-        FF_Tac: { name: 'FF Tactics',     id: 98 },
         FF_BF:  { name: 'Brave Frontier', id: 97 },
+        FF_Tac: { name: 'FF Tactics',     id: 98 },
         FF_T0:  { name: 'FF Type-0',      id: 90 },
     };
 

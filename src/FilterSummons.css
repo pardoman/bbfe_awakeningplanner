@@ -46,7 +46,6 @@
     padding: 0;
     font-family:Arial;
 	font-size:17px;
-    outline: none;
 }
 
 .SummonFilterOrigin.close {
@@ -60,6 +59,7 @@
     border: solid 1px #18ab29;
     border-radius: 20px;
     font-size: 14px;
+    outline: none;
 }
 
 .SummonFilterOriginButton:hover {

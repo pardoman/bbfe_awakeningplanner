@@ -6,6 +6,9 @@ import AweHeader from './AwaHeader';
 
 import './table.css';
 
+/**
+ * Shows all the units the user has chosen to awake to 6 stars
+ */
 class ContentSummons extends Component {
     constructor(props){
         super(props)
@@ -14,11 +17,11 @@ class ContentSummons extends Component {
     };
 
     componentDidMount() {
-      inventory.addListener( this.onInventoryChange );
+      inventory.addListener( this.onInventoryChange, inventory.LISTEN.SUMMON );
     }
 
     componentWillUnmount() {
-      inventory.removeListener( this.onInventoryChange );
+      inventory.removeListener( this.onInventoryChange, inventory.LISTEN.SUMMON );
     }
 
     render() {

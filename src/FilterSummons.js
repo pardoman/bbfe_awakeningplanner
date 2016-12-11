@@ -1,23 +1,45 @@
 import React, { Component } from 'react';
 
 import AweConst from './Const';
+import inventory from './Inventory';
+import SUMMONS from './Summons';
+
 import './FilterSummons.css';
 
-
+/**
+ * Filters the summons that are shown in component <AddSummon />
+ */
 class FilterSummons extends Component {
     constructor(props){
         super(props)
         this.state = { isOpen: false, filters: [] };
         this.toggleFilterUi = this.toggleFilterUi.bind(this);
         this.onSelection = this.onSelection.bind(this);
+        this.onInventoryChange = this.onInventoryChange.bind(this);
 
-        this.allOrigins = [];
+        // Show origin-filter button only for those that contain units
+        this.availableOrigins = [];
         for (var key in AweConst.Origin) {
             if (AweConst.Origin.hasOwnProperty(key)){
-                this.allOrigins.push( AweConst.Origin[key] );
+                // Check to see if there is at least one unit from this particular origin
+                var originData = AweConst.Origin[key]; 
+                var res = SUMMONS.ALL.filter( summon => {
+                    return summon.origin === originData.id;
+                });
+                if (res.length > 0) {
+                    this.availableOrigins.push( originData );
+                }
             }
         }
     };
+
+    componentDidMount() {
+      inventory.addListener( this.onInventoryChange, inventory.LISTEN.FILTER );
+    }
+
+    componentWillUnmount() {
+      inventory.removeListener( this.onInventoryChange, inventory.LISTEN.FILTER );
+    }
 
     render() {
         var that = this;
@@ -27,7 +49,7 @@ class FilterSummons extends Component {
             filterPanelClassName += ' close';
         }
         // Prepare an array to render the filter buttons
-        var buttonStates = this.allOrigins.map( origin => {
+        var buttonStates = this.availableOrigins.map( origin => {
             var bActive = (that.state.filters.indexOf(origin.id) !== -1);
             return {
                 name: origin.name,
@@ -57,7 +79,8 @@ class FilterSummons extends Component {
     }
 
     toggleFilterUi() {
-        this.setState({ isOpen: !this.state.isOpen });
+        var bOpen = !this.state.isOpen;
+        this.setState({ isOpen: bOpen });
     }
 
     onSelection(event) {
@@ -66,15 +89,17 @@ class FilterSummons extends Component {
         if (!Number.isInteger(originId))
             return;
 
-        var newFilters = this.state.filters.concat();
-        var index = newFilters.indexOf(originId);
-        if (index === -1) {
-            newFilters.push( originId );
+        if (inventory.hasFilter(originId)) {
+            inventory.removeFilter(originId);
         } else {
-            newFilters.splice(index, 1);
+            inventory.addFilter(originId, true);
         }
-        this.setState({ filters: newFilters });
     }
+
+    onInventoryChange() {
+        this.setState({ filters: inventory.filters.concat() });
+    }
+
     
 }
 

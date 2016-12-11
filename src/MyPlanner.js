@@ -11,11 +11,13 @@ class MyPlanner extends Component {
     }
 
     componentDidMount() {
-      inventory.addListener( this.onInventoryChange );
+      inventory.addListener( this.onInventoryChange, inventory.LISTEN.MATS );
+      inventory.addListener( this.onInventoryChange, inventory.LISTEN.SUMMON );
     }
 
     componentWillUnmount() {
-      inventory.removeListener( this.onInventoryChange );
+      inventory.removeListener( this.onInventoryChange, inventory.LISTEN.MATS );
+      inventory.removeListener( this.onInventoryChange, inventory.LISTEN.SUMMON );
     }
 
     render() {

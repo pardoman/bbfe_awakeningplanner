@@ -11,8 +11,15 @@ class Inventory {
     
     materials = [];
     summons = [];
-    summonKeys = []; // runtime bookeeping array. No need to persist.
-    listeners = [];
+    summonKeys = []; // runtime bookeeping array. No need to persist. I need this because React.
+    filters = [];    // runtime filtering of which summons to choose from.
+    listeners = {};
+
+    LISTEN = {
+        SUMMON: 'LISTEN_SUMMON',
+        MATS:   'LISTEN_MATS',
+        FILTER: 'LISTEN_FILTER',
+    };
 
     //material
     update = function(aweMatId, value) {
@@ -20,7 +27,7 @@ class Inventory {
         value = Math.max(0, value);
         this.materials[aweMatId].value = value;
         localStorage.setItem(STORAGE_PREFIX_AWE_MAT + aweMatId, value);
-        this.notifyListeners();
+        this.notifyListeners(this.LISTEN.MATS);
     };
 
     //summon
@@ -28,7 +35,7 @@ class Inventory {
         this.summons.unshift(summonId);
         this.summonKeys.unshift(nextSummonInventoryId++);
         localStorage.setItem(STORAGE_SUMMONS , JSON.stringify(this.summons));
-        this.notifyListeners();
+        this.notifyListeners(this.LISTEN.SUMMON);
     };
 
     //summon
@@ -44,8 +51,40 @@ class Inventory {
             this.summons.splice(index, 1);
             this.summonKeys.splice(index, 1);
             localStorage.setItem(STORAGE_SUMMONS , JSON.stringify(this.summons));
-            this.notifyListeners();
+            this.notifyListeners(this.LISTEN.SUMMON);
         }
+    };
+
+    addFilter = function(originId, removeAll) {
+        var index = this.filters.indexOf(originId);
+        if (index !== -1) {
+            return;
+        }
+        if (removeAll) {
+            this.filters.splice(0);
+        }
+        this.filters.push( originId );
+        this.notifyListeners(this.LISTEN.FILTER);
+    };
+
+    removeFilter = function(originId) {
+        var index = this.filters.indexOf(originId);
+        if (index === -1) {
+            return;
+        }
+        this.filters.splice(index, 1);
+        this.notifyListeners(this.LISTEN.FILTER);
+    };
+
+    removeAllFilters = function() {
+        if (this.filters.length > 0) {
+            this.filters.splice(0);
+            this.notifyListeners(this.LISTEN.FILTER);   
+        }
+    }
+
+    hasFilter = function(originId) {
+        return this.filters.indexOf(originId) !== -1;
     };
 
     // Calculate needed materials based on inventory and summons needed to awaken
@@ -78,19 +117,31 @@ class Inventory {
     };
 
     // TODO: Change and use proper event listeners
-    addListener = function( listener ) {
-        this.listeners.push(listener);
+    addListener = function( listener, listenType ) {
+        var group = this.listeners[listenType];
+        if (!Array.isArray(group)) {
+            group = this.listeners[listenType] = [];
+        }
+        group.push(listener);
     };
 
-    removeListener = function( listener ) {
-        var index = this.listeners.indexOf( listener );
+    removeListener = function( listener, listenType ) {
+        var group = this.listeners[listenType];
+        if (!Array.isArray(group)) {
+            return;
+        }
+        var index = group.indexOf( listener );
         if (index !== -1) {
-            this.listeners.splice(index, 1);
+            group.splice(index, 1);
         }
     };
 
-    notifyListeners = function() {
-        this.listeners.forEach(function(listener) {
+    notifyListeners = function(listenType) {
+        var group = this.listeners[listenType];
+        if (!Array.isArray(group)) {
+            return;
+        }
+        group.forEach(function(listener) {
             listener();
         });
     };
