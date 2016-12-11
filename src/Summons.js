@@ -262,6 +262,100 @@ SUMMONS.GILGAMESH = new Summon('Gilgamesh')
     .divineCrystal(5)
     ;
 
+import imgAce from './images/summons/Unit-Ace-6.png';
+SUMMONS.ACE = new Summon('Ace')
+    .setImage(imgAce)
+    .setOrigin(AweConst.Origin.FF_T0)
+    .setWiki('https://exviuswiki.com/Ace')
+    .rainbowBloom(20)
+    .prismaticHorn(10)
+    .fairiesWrit(10)
+    .calamityWrit(5)
+    .divineCrystal(5)
+    ;
+    
+import imgSeven from './images/summons/Unit-Seven-6.png';
+SUMMONS.SEVEN = new Summon('Seven')
+    .setImage(imgSeven)
+    .setOrigin(AweConst.Origin.FF_T0)
+    .setWiki('https://exviuswiki.com/Seven')
+    .prismaticHorn(20)
+    .rainbowBloom(10)
+    .fairiesWrit(10)
+    .calamityGem(5)
+    .divineCrystal(5)
+    ;
+
+import imgNine from './images/summons/Unit-Nine-6.png';
+SUMMONS.NINE = new Summon('Nine')
+    .setImage(imgNine)
+    .setOrigin(AweConst.Origin.FF_T0)
+    .setWiki('https://exviuswiki.com/Nine')
+    .calamityGem(20)
+    .calamityWrit(10)
+    .fairiesWrit(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
+    
+import imgQueen from './images/summons/Unit-Queen-6.png';
+SUMMONS.QUEEN = new Summon('Queen')
+    .setImage(imgQueen)
+    .setOrigin(AweConst.Origin.FF_T0)
+    .setWiki('https://exviuswiki.com/Queen')
+    .calamityWrit(20)
+    .calamityGem(10)
+    .fairiesWrit(10)
+    .rainbowBloom(5)
+    .divineCrystal(5)
+    ;
+
+import imgMercedes from './images/summons/Unit-Mercedes-6.png';
+SUMMONS.MERCEDES = new Summon('Mercedes')
+    .setImage(imgMercedes)
+    .setWiki('https://exviuswiki.com/Mercedes')
+    .rainbowBloom(20)
+    .calamityGem(10)
+    .prismaticHorn(10)
+    .fairiesWrit(5)
+    .divineCrystal(5)
+    ;
+
+import imgLuka from './images/summons/Unit-Luka-6.png';
+SUMMONS.LUKA = new Summon('Luka')
+    .setImage(imgLuka)
+    .setWiki('https://exviuswiki.com/Luka')
+    .rainbowBloom(20)
+    .fairiesWrit(10)
+    .calamityWrit(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
+
+import imgDarkFina from './images/summons/Unit-Dark_Fina-6.png';
+SUMMONS.DARKFINA = new Summon('Dark Fina')
+    .setImage(imgDarkFina)
+    .setWiki('https://exviuswiki.com/Dark_Fina')
+    .calamityGem(20)
+    .calamityWrit(10)
+    .rainbowBloom(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
+
+import imgOrlandu from './images/summons/Unit-Orlandu-6.png';
+SUMMONS.ORLANDU = new Summon('Orlandu')
+    .setImage(imgOrlandu)
+    .setOrigin(AweConst.Origin.FF_Tac)
+    .setWiki('https://exviuswiki.com/Orlandu')
+    .fairiesWrit(20)
+    .rainbowBloom(10)
+    .calamityWrit(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
+    
+
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
