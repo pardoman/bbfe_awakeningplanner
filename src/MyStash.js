@@ -11,7 +11,11 @@ class MyStash extends Component {
     }
 
     handleChange(event) {
-        var newValue = parseInt(event.currentTarget.value, 10);
+        var strValue = event.currentTarget.value;
+        if (!strValue) {
+            strValue = '0';
+        }
+        var newValue = parseInt(strValue, 10);
         if (!Number.isInteger(newValue))
             return;
 
