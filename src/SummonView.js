@@ -11,7 +11,11 @@ class SummonView extends Component {
     
     constructor(props){
         super(props)
-        this.state = { summonId: props.summonId, summonKey: props.summonKey };
+        this.state = { 
+            summonId: props.summonId, 
+            summonKey: props.summonKey,
+            awakeningMode: props.awakeningMode 
+        };
         this.onRemoveThisSummon = this.onRemoveThisSummon.bind(this);
     };
 
