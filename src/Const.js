@@ -64,6 +64,8 @@ class AweConsts {
         FF_XI:  { name: 'FF XI',  id: 11 },
         FF_XII: { name: 'FF XII', id: 12 },
         FF_XIII:{ name: 'FF XIII',id: 13 },
+        FF_XIV: { name: 'FF XIV', id: 14 },
+        FF_XV:  { name: 'FF XV',  id: 15 },
 
         FF_BE:  { name: 'FF BE',          id: 99 },
         FF_BF:  { name: 'Brave Frontier', id: 97 },

@@ -354,6 +354,19 @@ SUMMONS.ORLANDU = new Summon('Orlandu')
     .prismaticHorn(5)
     .divineCrystal(5)
     ;
+
+import imgNoctis from './images/summons/Unit-Noctis-6.png';
+SUMMONS.NOCTIS = new Summon('Noctis')
+    .setImage(imgNoctis)
+    .setOrigin(AweConst.Origin.FF_XV)
+    .setWiki('https://exviuswiki.com/Noctis')
+    .calamityGem(20)
+    .calamityWrit(10)
+    .prismaticHorn(10)
+    .rainbowBloom(5)
+    .divineCrystal(5)
+    ;
+    
     
 
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
