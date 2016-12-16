@@ -7,16 +7,25 @@
     border: solid 1px #18ab29;
     background-color: white;
     padding: 0;
-    min-height: 146px;
+    height: 180px;
 }
 
 .Choose-Summon-Option {
     cursor: pointer;
     align-self: center;
     border: solid 1px white;
+    height: 70%;
 }
 
 .Choose-Summon-Option:hover {
     border: solid 1px #42b71d;
     border-radius: 10px;
+}
+
+.Choose-Summon-Option-Img {
+    height: 80%;
+}
+
+.Choose-Summon-Option-Text {
+    height: 20%;
 }

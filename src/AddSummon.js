@@ -47,12 +47,16 @@ class AddSummon extends Component {
                     {filteredSummons.map(function(summon, index){
                         return <div key={index} className="Choose-Summon-Option" >
                                     <img 
-                                        src={summon.src} 
+                                        className="Choose-Summon-Option-Img"
+                                        src={summon.src}
                                         alt={summon.name}
                                         title={summon.name} 
                                         data-summon-id={summon.id}
                                         onClick={that.onSelection} 
                                     />
+                                    <span className="Choose-Summon-Option-Text">
+                                        {summon.name}
+                                    </span>
                                 </div>
                     })}
                 </div>
