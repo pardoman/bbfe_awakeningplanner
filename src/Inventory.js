@@ -116,6 +116,76 @@ class Inventory {
         return ret;
     };
 
+    // Returns an array with {id, key} of the units that can be awaken 
+    // given the materials currently in the inventory.
+    getUnitsThatCanBeAwaken = function() {
+
+        var unitsThatCanBeAwaken = [];
+        var that = this;
+        this.summons.forEach(function(summonId, index){
+            var data = SummonData[summonId];
+            var canAwake = that.materials[0].value >= data.materials[0] &&
+                           that.materials[1].value >= data.materials[1] &&
+                           that.materials[2].value >= data.materials[2] &&
+                           that.materials[3].value >= data.materials[3] &&
+                           that.materials[4].value >= data.materials[4] &&
+                           that.materials[5].value >= data.materials[5];
+            if (canAwake) {
+                 unitsThatCanBeAwaken.push({
+                     id: summonId, 
+                     key: that.summonKeys[index]
+                });
+            }
+        });
+        return unitsThatCanBeAwaken;
+    };
+
+    // Removes unit from the "selected units" section, and
+    // also removes the materials required to awaken said unit.
+    awakeUnit = function(summonId, summonKey) {
+
+        if (summonKey === undefined) {
+            return;
+        }
+
+        // First, check the unit can be awaken
+        var unitsThatCanBeAwaken = this.getUnitsThatCanBeAwaken();
+        var canAwake = false;
+        unitsThatCanBeAwaken.forEach(function(unitData) {
+            if (unitData.key === summonKey && unitData.id === summonId) {
+                canAwake = true;
+            }
+        })
+
+        // Fail safe mechanism, to prevent situations where I suck at coding.
+        if (!canAwake) {
+            return;
+        }
+
+        var index = this.summonKeys.indedOf(summonKey);
+        if (index === -1) {
+            return;
+        }
+
+        // Remove unit
+        this.summonKeys.splice(index, 1);
+        this.summons.splice(index, 1);
+
+        // Remove materials
+        // Unrolling the loop... for performance... yeah right.
+        var materialData = SummonData[summonId].materials;
+        this.materials[0] = Math.max(0, this.materials[0] - materialData[0]);
+        this.materials[1] = Math.max(0, this.materials[1] - materialData[1]);
+        this.materials[2] = Math.max(0, this.materials[2] - materialData[2]);
+        this.materials[3] = Math.max(0, this.materials[3] - materialData[3]);
+        this.materials[4] = Math.max(0, this.materials[4] - materialData[4]);
+        this.materials[5] = Math.max(0, this.materials[5] - materialData[5]);
+
+        // Signal
+        this.notifyListeners(this.LISTEN.SUMMON);
+        this.notifyListeners(this.LISTEN.MATS);
+    };
+
     // TODO: Change and use proper event listeners
     addListener = function( listener, listenType ) {
         var group = this.listeners[listenType];
