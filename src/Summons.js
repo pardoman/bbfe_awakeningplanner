@@ -243,10 +243,10 @@ SUMMONS.SNOW = new Summon('Snow')
     .setImage(imgSnow)
     .setOrigin(AweConst.Origin.FF_XIII)
     .setWiki('https://exviuswiki.com/Snow')
-    .fairiesWrit(20)
-    .rainbowBloom(10)
+    .prismaticHorn(20)
     .calamityGem(10)
-    .prismaticHorn(5)
+    .fairiesWrit(10)
+    .rainbowBloom(5)
     .divineCrystal(5)
     ;
 
