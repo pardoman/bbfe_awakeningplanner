@@ -367,6 +367,30 @@ SUMMONS.NOCTIS = new Summon('Noctis')
     .divineCrystal(5)
     ;
     
+import imgMedius from './images/summons/Unit-Medius-6.png';
+SUMMONS.MEDIUS = new Summon('Medius')
+    .setImage(imgMedius)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exviuswiki.com/Medius')
+    .prismaticHorn(20)
+    .calamityWrit(10)
+    .rainbowBloom(10)
+    .calamityGem(5)
+    .divineCrystal(5)
+    ;
+    
+import imgCerius from './images/summons/Unit-Cerius-6.png';
+SUMMONS.CERIUS = new Summon('Cerius')
+    .setImage(imgCerius)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exviuswiki.com/Cerius')
+    .rainbowBloom(20)
+    .fairiesWrit(10)
+    .calamityWrit(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
+    
     
 
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
@@ -420,6 +444,31 @@ SUMMONS.ELZA = new Summon('Elza')
     .calamityGem(5)
     .divineCrystal(5)
     ;
+
+import imgSantaRoselia from './images/summons/Unit-Santa_Roselia-6.png';
+SUMMONS.SANTAROSELIA = new Summon('Santa Roselia')
+    .setImage(imgSantaRoselia)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exviuswiki.com/Santa_Roselia')
+    .rainbowBloom(20)
+    .fairiesWrit(10)
+    .calamityWrit(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
+
+import imgWhiteKnightNoel from './images/summons/Unit-White_Knight_Noel-6.png';
+SUMMONS.WHITEKNIGHTNOEL = new Summon('White Knight Noel')
+    .setImage(imgWhiteKnightNoel)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exviuswiki.com/White_Knight_Noel')
+    .fairiesWrit(20)
+    .prismaticHorn(10)
+    .calamityGem(10)
+    .calamityWrit(5)
+    .divineCrystal(5)
+    ;
+
 
 // IMPORTANT: ADD EVENT-EXCLUSIVE SUMMONS JUST OVER THIS COMMENT !!!
 // IMPORTANT: ADD EVENT-EXCLUSIVE SUMMONS JUST OVER THIS COMMENT !!!
