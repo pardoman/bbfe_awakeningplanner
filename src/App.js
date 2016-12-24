@@ -8,6 +8,7 @@ import MyPlanner from './MyPlanner';
 import FilterSummons from './FilterSummons';
 import AddSummon from './AddSummon';
 import ContentSummons from './ContentSummons';
+import Awakener3d from './awakener3d/Awakener3d';
 
 import './App.css';
 import './table.css';
@@ -48,6 +49,8 @@ class App extends Component {
         <table className="centerTable">
           <ContentSummons />
         </table>
+
+        <Awakener3d />
 
         <div className="refia_cute">
           <img src={refiaAnimation} alt="refia_victory" />
