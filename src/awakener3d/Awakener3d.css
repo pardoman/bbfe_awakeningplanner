@@ -1,0 +1,47 @@
+.awakener3d-container {
+    position: relative;
+}
+
+.awakening-2d {
+    position: absolute;
+    left: calc( 50% - 200px );
+    top: 0;
+    width: 400px;
+    height: 400px;
+}
+
+.awakening-unit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -84%);
+}
+
+.awekening-material {
+    position: absolute;
+}
+
+.awekening-material.one {
+    left: 120px;
+    top: 141px;
+}
+
+.awekening-material.two {
+    left: 260px;
+    top: 141px;
+}
+
+.awekening-material.three {
+    left: 328px;
+    top: 195px;
+}
+
+.awekening-material.four {
+    left: 190px;
+    top: 244px;
+}
+
+.awekening-material.five {
+    left: 45px;
+    top: 195px;
+}

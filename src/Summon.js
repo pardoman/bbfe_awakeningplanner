@@ -68,6 +68,17 @@ class Summon {
         return this.materials[materialId] || 0;
     };
 
+    // Returns an Array with the ids of the 5 materials required for awakening.
+    getMaterialIds = function() {
+        var matIds = [];
+        this.materials.forEach(function(count, id){
+            if (count > 0) {
+                matIds.push(id);
+            }
+        });
+        return matIds;
+    };
+
     static internal_setNextSummonId = function(value) {
         SUMMON_ID = value;
     }

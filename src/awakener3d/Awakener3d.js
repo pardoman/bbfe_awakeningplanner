@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import Summons from '../Summons';
+import AweConsts from '../Const';
 import TWEEN from 'tween.js';
 
 /* global THREE */
+
+import './Awakener3d.css';
 
 
 /**
@@ -26,7 +30,9 @@ class Awakener3d extends Component {
         super(props)
         this.animate = this.animate.bind(this);
         this.onPlay = this.onPlay.bind(this);
-        this.running = true;
+        this.state = {
+            summonId: Summons.VAAN.id // Todo: Remove hardcoded value and use props value
+        };
 
         this.uv_unit_stand = [
             new THREE.Vector2(      258/512, (512-(258+124))/512),    // Left  Bottom 
@@ -87,7 +93,19 @@ class Awakener3d extends Component {
     }
 
     componentWillUnmount() {
-      // TODO: destroy it all.
+        this.running = false;
+        this.rendererDiv.removeChild( this.renderer.domElement );
+        this.renderer.dispose();
+        
+        this.rendererDiv = null;
+        this.renderer = null;
+        this.camera = null;
+        this.scene = null;
+        this.meshUnitStand = null;
+        this.meshMatHolder = null;
+        this.meshInnerRing = null;
+        this.meshOuterRing = null;
+        this.allMeshes = null;
     }
 
     setRendererDiv(theDiv) {
@@ -96,9 +114,28 @@ class Awakener3d extends Component {
 
     render() {
         var that = this;
+        var summonData = Summons[ this.state.summonId ];
+        var materialIds = summonData.getMaterialIds();
+        var mats = [
+            null, // dummy entry
+            AweConsts.materials[ materialIds[0] ],
+            AweConsts.materials[ materialIds[1] ],
+            AweConsts.materials[ materialIds[2] ],
+            AweConsts.materials[ materialIds[3] ],
+            AweConsts.materials[ materialIds[4] ],
+            AweConsts.materials[ materialIds[5] ]
+        ]
         return (
-            <div>
+            <div className="awakener3d-container">
                 <div ref={(theDiv) => { that.setRendererDiv(theDiv); }}>
+                </div>
+                <div className="awakening-2d">
+                    <img className="awakening-unit" src={summonData.src}></img>
+                    <img className="awekening-material one" src={mats[1].src}></img>
+                    <img className="awekening-material two" src={mats[2].src}></img>
+                    <img className="awekening-material three" src={mats[3].src}></img>
+                    <img className="awekening-material four" src={mats[4].src}></img>
+                    <img className="awekening-material five" src={mats[5].src}></img>
                 </div>
                 <button onClick={that.onPlay}>Play!</button>
             </div>
@@ -109,10 +146,11 @@ class Awakener3d extends Component {
     onPlay() {
 
         var that = this;
+        var tValues;
 
         // Material Holder
-        var coords = { y: 40, opacity: 0 };
-        var tween = new TWEEN.Tween(coords)
+        tValues = { y: 40, opacity: 0 };
+        new TWEEN.Tween(tValues)
             .easing(TWEEN.Easing.Quadratic.Out)
             .to({ y: 0, opacity: 1 }, 500)
             .onUpdate(function() {
@@ -123,8 +161,8 @@ class Awakener3d extends Component {
 
         // Inner ring, tweens from above.
         this.meshInnerRing.material.opacity = 0;
-        var coords = { y: -30, opacity: 0 };
-        var tween = new TWEEN.Tween(coords)
+        tValues = { y: -30, opacity: 0 };
+        new TWEEN.Tween(tValues)
             .easing(TWEEN.Easing.Cubic.Out)
             .delay(200)
             .to({ y: -7, opacity: 0.5 }, 400)
@@ -136,8 +174,8 @@ class Awakener3d extends Component {
 
         // Outer ring, scales down
         this.meshOuterRing.material.opacity = 0;
-        var coords = { scale: 3.5, opacity: 0 };
-        var tween = new TWEEN.Tween(coords)
+        tValues = { scale: 3.5, opacity: 0 };
+        new TWEEN.Tween(tValues)
             .easing(TWEEN.Easing.Cubic.Out)
             .delay(100)
             .to({ scale: 1, opacity: 1 }, 420)
@@ -150,8 +188,8 @@ class Awakener3d extends Component {
 
         // Camera
         this.camera.position.y = this.cameraStartY;
-        var coords = { y: this.cameraStartY };
-        var tween = new TWEEN.Tween(coords)
+        tValues = { y: this.cameraStartY };
+        new TWEEN.Tween(tValues)
             .easing(TWEEN.Easing.Cubic.Out)
             .delay(1200)
             .to({ y: that.cameraStartY + 400 }, 600)
@@ -188,7 +226,8 @@ class Awakener3d extends Component {
     createMeshes(scene) {
 
          // Create Material
-        var texture = THREE.ImageUtils.loadTexture( "awaken_ring.png" );
+         var textureLoader = new THREE.TextureLoader();
+         var texture = textureLoader.load("awaken_ring.png");
 
         this.meshUnitStand = this.createTexturedMesh( scene, texture, 110, 110, this.uv_unit_stand, 1 );
         this.meshMatHolder = this.createTexturedMesh( scene, texture, 290, 290, this.uv_mat_holder, 1 );
