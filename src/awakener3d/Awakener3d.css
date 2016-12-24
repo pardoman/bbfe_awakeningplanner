@@ -22,26 +22,26 @@
 }
 
 .awekening-material.one {
-    left: 120px;
-    top: 141px;
-}
-
-.awekening-material.two {
-    left: 260px;
-    top: 141px;
-}
-
-.awekening-material.three {
-    left: 328px;
-    top: 195px;
-}
-
-.awekening-material.four {
     left: 190px;
     top: 244px;
 }
 
-.awekening-material.five {
+.awekening-material.two {
     left: 45px;
+    top: 195px;
+}
+
+.awekening-material.three {
+    left: 120px;
+    top: 141px;
+}
+
+.awekening-material.four {
+    left: 260px;
+    top: 141px;
+}
+
+.awekening-material.five {
+    left: 328px;
     top: 195px;
 }

@@ -30,6 +30,7 @@ class Awakener3d extends Component {
         super(props)
         this.animate = this.animate.bind(this);
         this.onPlay = this.onPlay.bind(this);
+        this.onRestart = this.onRestart.bind(this);
         this.state = {
             summonId: Summons.VAAN.id // Todo: Remove hardcoded value and use props value
         };
@@ -130,23 +131,57 @@ class Awakener3d extends Component {
                 <div ref={(theDiv) => { that.setRendererDiv(theDiv); }}>
                 </div>
                 <div className="awakening-2d">
-                    <img className="awakening-unit" src={summonData.src}></img>
-                    <img className="awekening-material one" src={mats[1].src}></img>
-                    <img className="awekening-material two" src={mats[2].src}></img>
-                    <img className="awekening-material three" src={mats[3].src}></img>
-                    <img className="awekening-material four" src={mats[4].src}></img>
-                    <img className="awekening-material five" src={mats[5].src}></img>
+                    <img className="awakening-unit" src={summonData.src} alt={summonData.name}></img>
+                    <img className="awekening-material one"   src={mats[1].src} alt={mats[1].name}></img>
+                    <img className="awekening-material two"   src={mats[2].src} alt={mats[2].name}></img>
+                    <img className="awekening-material three" src={mats[3].src} alt={mats[3].name}></img>
+                    <img className="awekening-material four"  src={mats[4].src} alt={mats[4].name}></img>
+                    <img className="awekening-material five"  src={mats[5].src} alt={mats[5].name}></img>
                 </div>
+                <button onClick={that.onRestart}>Restart</button>
                 <button onClick={that.onPlay}>Play!</button>
             </div>
         );
     }
 
+    onRestart() {
+
+        // Stop all active tweens
+        var activeTweens = TWEEN.getAll();
+        activeTweens.forEach(function(tw){
+            tw.stop();
+        });
+
+        // Orient all meshes in the scene
+        this.allMeshes.forEach(function(mesh){
+            // rotation
+            mesh.rotation.x = -Math.PI * .38;
+            mesh.rotation.z = Math.PI * .5;
+            // position
+            mesh.position.y = 0;
+            // opacity
+            mesh.material.opacity = 1;
+        });
+
+        // Special cases
+        this.meshMatHolder.rotation.z += Math.PI; // 180 deg
+        this.meshInnerRing.position.y -= 7; // Move down a bunch
+        this.meshInnerRing.material.opacity = 0.5;
+        this.meshOuterRing.position.y -= 5; // Move down a bit
+
+        // Camera
+        this.camera.position.y = this.cameraStartY;
+    }
+
     // Runs the animation from scratch
     onPlay() {
 
+        // Back to initial state
+        this.onRestart();
+
         var that = this;
         var tValues;
+
 
         // Material Holder
         tValues = { y: 40, opacity: 0 };
@@ -187,7 +222,6 @@ class Awakener3d extends Component {
             .start();
 
         // Camera
-        this.camera.position.y = this.cameraStartY;
         tValues = { y: this.cameraStartY };
         new TWEEN.Tween(tValues)
             .easing(TWEEN.Easing.Cubic.Out)
@@ -229,31 +263,22 @@ class Awakener3d extends Component {
          var textureLoader = new THREE.TextureLoader();
          var texture = textureLoader.load("awaken_ring.png");
 
-        this.meshUnitStand = this.createTexturedMesh( scene, texture, 110, 110, this.uv_unit_stand, 1 );
-        this.meshMatHolder = this.createTexturedMesh( scene, texture, 290, 290, this.uv_mat_holder, 1 );
-        this.meshMatHolder.rotation.z += Math.PI;
-        this.meshInnerRing = this.createTexturedMesh( scene, texture, 280, 280, this.uv_inner_ring, 0.5 );
-        this.meshInnerRing.position.y -= 7; // Move down a lot
-        this.meshOuterRing = this.createTexturedMesh( scene, texture, 300, 300, this.uv_outer_ring, 1 );
-        this.meshOuterRing.position.y -= 5; // Move down a bit
+        this.meshUnitStand = this.createTexturedMesh( scene, texture, 110, 110, this.uv_unit_stand );
+        this.meshMatHolder = this.createTexturedMesh( scene, texture, 290, 290, this.uv_mat_holder );
+        this.meshInnerRing = this.createTexturedMesh( scene, texture, 280, 280, this.uv_inner_ring );
+        this.meshOuterRing = this.createTexturedMesh( scene, texture, 300, 300, this.uv_outer_ring );
 
-        window.AAA = this.meshMatHolder;
-
-        // Orient all meshes in the scene
-        this.allMeshes.forEach(function(mesh){
-            mesh.rotation.x = -Math.PI * .38;
-        });
+        this.onRestart();
     }
 
     // Helper function
-    createTexturedMesh( scene, texture, width, height, uv, opacity ) {
+    createTexturedMesh( scene, texture, width, height, uv ) {
 
         var material = new THREE.MeshBasicMaterial({ 
             map: texture,
             transparent: true,
             depthWrite: false,
-            color: '#f8fa81',
-            opacity: opacity
+            color: '#f8fa81'
         });
         
         var geometry = new THREE.PlaneGeometry( width, height );
@@ -261,7 +286,6 @@ class Awakener3d extends Component {
         geometry.faceVertexUvs[0][1] = [ uv[1], uv[2], uv[3] ];
         
         var mesh = new THREE.Mesh( geometry, material );
-        mesh.rotation.z = Math.PI * .5;
         scene.add( mesh );
         this.allMeshes.push( mesh );
 
