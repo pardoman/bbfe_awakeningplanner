@@ -17,6 +17,7 @@ class SummonView extends Component {
             inventoryMats: inventory.getMaterials(),
             awakeningMode: inventory.isAwakeningMode()
         };
+        this.onAwakeThisUnit = this.onAwakeThisUnit.bind(this);
         this.onRemoveThisSummon = this.onRemoveThisSummon.bind(this);
         this.onAwakeUnit = this.onAwakeUnit.bind(this);
         this.onMaterialChange = this.onMaterialChange.bind(this);
@@ -52,7 +53,8 @@ class SummonView extends Component {
                         <img src={summonData.src} className="tableCellImage" alt={summonData.name} title={summonData.name} />
                     </a> 
                 </td>
-                {summonData.materials.map(function(matCount, index) {
+                {/* CASE 1 - Just display the materials this unit requires to awake */}
+                {!canAwake && summonData.materials.map(function(matCount, index) {
                     return <td key={index}>
                                 <input
                                     className={"tableCell" + (inventoryMats[index] < matCount ? ' mat-missing' : '')}
@@ -61,6 +63,15 @@ class SummonView extends Component {
                                 />
                             </td>;
                 })}
+                {/* CASE 2 - Display a big button to awake this unit! */}
+                {canAwake && <td colSpan="6">
+                                <button 
+                                    className="awake-this-unit"
+                                    onClick={this.onAwakeThisUnit}
+                                >
+                                    Awake {summonData.name}
+                                </button>
+                             </td>}
                 <td>
                     {isAwakeningMode &&  canAwake && <span className="Button-Action can-awake">✓</span>}
                     {isAwakeningMode && !canAwake && <span className="Button-Action cannot-awake">✕</span>}
@@ -72,6 +83,12 @@ class SummonView extends Component {
                 </td>
             </tr>
         );
+    }
+
+    onAwakeThisUnit() {
+        inventory.toggleAwakeningMode();
+        inventory.awakeUnit(this.state.summonId, this.state.summonKey);
+        // TODO: Do Awakening Animation 
     }
 
     onRemoveThisSummon() {

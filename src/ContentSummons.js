@@ -36,6 +36,7 @@ class ContentSummons extends Component {
         var summonCount = that.state.summons.length;
         var hasSummons = (summonCount > 0); 
         var canAwake = hasSummons && (inventory.getUnitsThatCanBeAwaken().length > 0);
+        var awakeningMode = this.state.isAwakeningMode;
         return (
             <tbody>
 
@@ -70,13 +71,14 @@ class ContentSummons extends Component {
                                 onClick={this.toggleAwakeningMode}
                                 className={'AwakeUnitButton' + (canAwake ? ' enabled' : '')}
                             >
-                                {canAwake && <img src={rarity6} alt="6start" />}
-                                {canAwake && <img src={rarity6} alt="6start" />}
-                                {canAwake && <img src={rarity6} alt="6start" />}
-                                {canAwake ? ' Awake a unit! ' : ' You need more Materials in your inventory to awake a unit '}
-                                {canAwake && <img src={rarity6} alt="6start" />}
-                                {canAwake && <img src={rarity6} alt="6start" />}
-                                {canAwake && <img src={rarity6} alt="6start" />}
+                                {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
+                                {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
+                                {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
+                                {canAwake ? ( awakeningMode ? ' Cancel Awakening ' : ' Awake a unit! ') 
+                                          : ' Not enough materials to awake a unit '}
+                                {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
+                                {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
+                                {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
                             </button>
                         </td>
                     </tr>}

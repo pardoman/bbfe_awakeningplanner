@@ -28,3 +28,18 @@
 .mat-missing {
     background-color: #ef9a9a; 
 }
+
+.awake-this-unit {
+	background-color:#44c767;
+	border-radius:16px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding: 9px 32px;
+	text-decoration:none;
+    outline: none;
+	text-shadow:0px 1px 0px #2f6627;
+}

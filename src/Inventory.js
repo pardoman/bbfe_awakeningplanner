@@ -161,41 +161,23 @@ class Inventory {
         }
 
         // First, check the unit can be awaken
-        var unitsThatCanBeAwaken = this.getUnitsThatCanBeAwaken();
-        var canAwake = false;
-        unitsThatCanBeAwaken.forEach(function(unitData) {
-            if (unitData.key === summonKey && unitData.id === summonId) {
-                canAwake = true;
-            }
-        })
-
-        // Fail safe mechanism, to prevent situations where I suck at coding.
+        var canAwake = this.canAwakeUnit(summonId);
         if (!canAwake) {
             return;
         }
 
-        var index = this.summonKeys.indedOf(summonKey);
-        if (index === -1) {
-            return;
-        }
-
-        // Remove unit
-        this.summonKeys.splice(index, 1);
-        this.summons.splice(index, 1);
+        // Remove Summon
+        this.removeSummon(summonId, summonKey);
 
         // Remove materials
         // Unrolling the loop... for performance... yeah right.
         var materialData = SummonData[summonId].materials;
-        this.materials[0] = Math.max(0, this.materials[0] - materialData[0]);
-        this.materials[1] = Math.max(0, this.materials[1] - materialData[1]);
-        this.materials[2] = Math.max(0, this.materials[2] - materialData[2]);
-        this.materials[3] = Math.max(0, this.materials[3] - materialData[3]);
-        this.materials[4] = Math.max(0, this.materials[4] - materialData[4]);
-        this.materials[5] = Math.max(0, this.materials[5] - materialData[5]);
-
-        // Signal
-        this.notifyListeners(this.LISTEN.SUMMON);
-        this.notifyListeners(this.LISTEN.MATS);
+        this.update(0, this.materials[0].value - materialData[0]);
+        this.update(1, this.materials[1].value - materialData[1]);
+        this.update(2, this.materials[2].value - materialData[2]);
+        this.update(3, this.materials[3].value - materialData[3]);
+        this.update(4, this.materials[4].value - materialData[4]);
+        this.update(5, this.materials[5].value - materialData[5]);
     };
 
     isAwakeningMode = function() {
