@@ -201,6 +201,9 @@ class Awakener3d extends Component {
         });
 
         // Special cases
+        this.meshBackground.position.x = 0;
+        this.meshBackground.position.y = 0;
+        this.meshBackground.material.opacity = 1;
         this.meshMatHolder.rotation.z += Math.PI; // 180 deg
         this.meshInnerRing.position.y -= 7; // Move down a bunch
         this.meshInnerRing.material.opacity = 0.5;
@@ -248,6 +251,25 @@ class Awakener3d extends Component {
                 whiteOverlayDiv.style.opacity = this.opacity;
             })
             .start();
+
+        // Starts Background - Constant move left
+        tValues = { x: 0 };
+        new TWEEN.Tween(tValues)
+            .to({ x: -20 }, 6000)
+            .onUpdate(function() {
+                that.meshBackground.position.x = this.x;
+            })
+            .start();
+        // Starts Background - Fade out sequence
+        tValues = { opacity: 1 };
+        new TWEEN.Tween(tValues)
+            .delay(OUTRO_DELAY + 500)
+            .to({ opacity: 0 }, 400)
+            .onUpdate(function() {
+                that.meshBackground.material.opacity = this.opacity;
+            })
+            .start();
+        
         
 
         // Material Holder
@@ -315,6 +337,7 @@ class Awakener3d extends Component {
             .to({ y: that.cameraStartY + 400 }, 1000)
             .onUpdate(function() {
                 that.camera.position.y = this.y;
+                that.meshBackground.position.y = this.y; // lol
             })
             .onComplete(function(){
                 that.onStop();
@@ -346,9 +369,12 @@ class Awakener3d extends Component {
 
         // Create Material
         var textureLoader = new THREE.TextureLoader();
+        var texturebg = textureLoader.load("awakening_bg.png");
         var texture = textureLoader.load("awaken_ring.png");
         var texture2 = textureLoader.load("awakening_aura.png");
 
+        this.meshBackground = this.createTexturedMesh( scene, texturebg, 300, 300 );
+        this.allMeshes.splice(0, 1);
         this.meshBaseAura = this.createTexturedMesh( scene, texture2, 400, 400 );
         this.meshUnitStand = this.createTexturedMesh( scene, texture, 110, 110, this.uv_unit_stand );
         this.meshMatHolder = this.createTexturedMesh( scene, texture, 290, 290, this.uv_mat_holder );
