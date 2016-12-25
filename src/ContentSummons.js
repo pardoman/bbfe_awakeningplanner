@@ -65,8 +65,7 @@ class ContentSummons extends Component {
                 {/* The Awakening button */}
                 {hasSummons && 
                     <tr>
-                        <td></td>
-                        <td colSpan="6">
+                        <td colSpan="8">
                             <button 
                                 onClick={this.toggleAwakeningMode}
                                 className={'AwakeUnitButton' + (canAwake ? ' enabled' : '')}
@@ -74,8 +73,8 @@ class ContentSummons extends Component {
                                 {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
                                 {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
                                 {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
-                                {canAwake ? ( awakeningMode ? ' Cancel Awakening ' : ' Awake a unit! ') 
-                                          : ' Not enough materials to awake a unit '}
+                                {canAwake ? ( awakeningMode ? 'Cancel Awakening' : ' Awake! ') 
+                                          : 'Not enough materials to awake a unit'}
                                 {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
                                 {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
                                 {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
@@ -99,7 +98,9 @@ class ContentSummons extends Component {
     }
 
     toggleAwakeningMode() {
-        inventory.toggleAwakeningMode();
+        if (inventory.getUnitsThatCanBeAwaken().length > 0) {
+            inventory.toggleAwakeningMode();
+        }
     }
 
 }
