@@ -45,3 +45,12 @@
     left: 328px;
     top: 195px;
 }
+
+.fade-from-white {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 400px;
+    height: 400px;
+    background-color: white;
+}

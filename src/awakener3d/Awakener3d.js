@@ -14,7 +14,6 @@ import './Awakener3d.css';
 class Awakener3d extends Component {
     
     // ThreeJs 
-    rendererDiv;
     renderer;
     camera;
     scene;
@@ -23,8 +22,11 @@ class Awakener3d extends Component {
     meshMatHolder;
     meshInnerRing;
     meshOuterRing;
-
     allMeshes = [];
+
+    // React-divs
+    rendererDiv
+    overlay2dDiv;
 
      constructor(props){
         super(props)
@@ -98,6 +100,7 @@ class Awakener3d extends Component {
         this.rendererDiv.removeChild( this.renderer.domElement );
         this.renderer.dispose();
         
+        this.overlay2dDiv = null;
         this.rendererDiv = null;
         this.renderer = null;
         this.camera = null;
@@ -111,6 +114,10 @@ class Awakener3d extends Component {
 
     setRendererDiv(theDiv) {
         this.rendererDiv = theDiv; 
+    }
+    set2dOverlay(theDiv) {
+        // This div contains all non-threejs 2D-elements
+        this.overlay2dDiv = theDiv;
     }
 
     render() {
@@ -130,13 +137,14 @@ class Awakener3d extends Component {
             <div className="awakener3d-container">
                 <div ref={(theDiv) => { that.setRendererDiv(theDiv); }}>
                 </div>
-                <div className="awakening-2d">
+                <div className="awakening-2d" ref={(theDiv) => { that.set2dOverlay(theDiv); }} >
                     <img className="awakening-unit" src={summonData.src} alt={summonData.name}></img>
                     <img className="awekening-material one"   src={mats[1].src} alt={mats[1].name}></img>
                     <img className="awekening-material two"   src={mats[2].src} alt={mats[2].name}></img>
                     <img className="awekening-material three" src={mats[3].src} alt={mats[3].name}></img>
                     <img className="awekening-material four"  src={mats[4].src} alt={mats[4].name}></img>
                     <img className="awekening-material five"  src={mats[5].src} alt={mats[5].name}></img>
+                    <div className="fade-from-white"></div>
                 </div>
                 <button onClick={that.onRestart}>Restart</button>
                 <button onClick={that.onPlay}>Play!</button>
@@ -171,6 +179,11 @@ class Awakener3d extends Component {
 
         // Camera
         this.camera.position.y = this.cameraStartY;
+
+        // 2D overlays
+        Array.prototype.forEach.call(this.overlay2dDiv.children, function(child){
+            child.style.opacity = 1;
+        });
     }
 
     // Runs the animation from scratch
@@ -181,12 +194,28 @@ class Awakener3d extends Component {
 
         var that = this;
         var tValues;
+        const GENERAL_DELAY = 500;
+        const OUTRO_DELAY = GENERAL_DELAY + 1500;
 
+        // White overlay
+        var whiteOverlayDiv = this.overlay2dDiv.querySelector('.fade-from-white');
+        whiteOverlayDiv.style.opacity = 1;
+        tValues = { opacity: 1 };
+        new TWEEN.Tween(tValues)
+            .delay(300)
+            .to({ y: 0, opacity: 0 }, 230)
+            .onUpdate(function() {
+                whiteOverlayDiv.style.opacity = this.opacity;
+            })
+            .start();
+        
 
         // Material Holder
+        this.meshMatHolder.material.opacity = 0;
         tValues = { y: 40, opacity: 0 };
         new TWEEN.Tween(tValues)
             .easing(TWEEN.Easing.Quadratic.Out)
+            .delay(GENERAL_DELAY + 200)
             .to({ y: 0, opacity: 1 }, 500)
             .onUpdate(function() {
                 that.meshMatHolder.position.y = this.y;
@@ -199,7 +228,7 @@ class Awakener3d extends Component {
         tValues = { y: -30, opacity: 0 };
         new TWEEN.Tween(tValues)
             .easing(TWEEN.Easing.Cubic.Out)
-            .delay(200)
+            .delay(GENERAL_DELAY + 200)
             .to({ y: -7, opacity: 0.5 }, 400)
             .onUpdate(function() {
                 that.meshInnerRing.position.y = this.y;
@@ -212,7 +241,7 @@ class Awakener3d extends Component {
         tValues = { scale: 3.5, opacity: 0 };
         new TWEEN.Tween(tValues)
             .easing(TWEEN.Easing.Cubic.Out)
-            .delay(100)
+            .delay(GENERAL_DELAY + 100)
             .to({ scale: 1, opacity: 1 }, 420)
             .onUpdate(function() {
                 that.meshOuterRing.scale.x = this.scale;
@@ -221,11 +250,28 @@ class Awakener3d extends Component {
             })
             .start();
 
+        // Fade out unit and materials (all at the same time/speed)
+        var unitDiv = this.overlay2dDiv.querySelector('.awakening-unit');
+        var matDivs = this.overlay2dDiv.getElementsByClassName('awekening-material');
+        tValues = { opacity: 1 };
+        new TWEEN.Tween(tValues)
+            .easing(TWEEN.Easing.Cubic.Out)
+            .delay(OUTRO_DELAY)
+            .to({ opacity: 0 }, 500)
+            .onUpdate(function() {
+                var newOpacity = this.opacity;
+                Array.prototype.forEach.call(matDivs, function(div){
+                    div.style.opacity = newOpacity;
+                });
+                unitDiv.style.opacity = newOpacity;
+            })
+            .start();
+
         // Camera
         tValues = { y: this.cameraStartY };
         new TWEEN.Tween(tValues)
             .easing(TWEEN.Easing.Cubic.Out)
-            .delay(1200)
+            .delay(OUTRO_DELAY + 700)
             .to({ y: that.cameraStartY + 400 }, 600)
             .onUpdate(function() {
                 that.camera.position.y = this.y;
@@ -239,6 +285,8 @@ class Awakener3d extends Component {
     onStop(){
         // Ehh, now what?
         console.log('Animation stopped. Do something.');
+
+        this.onRestart();
     }
 
     animate( time ) {
@@ -268,6 +316,7 @@ class Awakener3d extends Component {
         this.meshInnerRing = this.createTexturedMesh( scene, texture, 280, 280, this.uv_inner_ring );
         this.meshOuterRing = this.createTexturedMesh( scene, texture, 300, 300, this.uv_outer_ring );
 
+        // Set initial state
         this.onRestart();
     }
 
@@ -282,8 +331,10 @@ class Awakener3d extends Component {
         });
         
         var geometry = new THREE.PlaneGeometry( width, height );
-        geometry.faceVertexUvs[0][0] = [ uv[0], uv[1], uv[3] ];
-        geometry.faceVertexUvs[0][1] = [ uv[1], uv[2], uv[3] ];
+        if (uv) {
+            geometry.faceVertexUvs[0][0] = [ uv[0], uv[1], uv[3] ];
+            geometry.faceVertexUvs[0][1] = [ uv[1], uv[2], uv[3] ];
+        }
         
         var mesh = new THREE.Mesh( geometry, material );
         scene.add( mesh );
