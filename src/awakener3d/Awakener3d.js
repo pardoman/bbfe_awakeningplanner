@@ -37,9 +37,10 @@ class Awakener3d extends Component {
         this.onPlay = this.onPlay.bind(this);
         this.onRestart = this.onRestart.bind(this);
         this.onRunAnimation = this.onRunAnimation.bind(this);
+        this.onRestartTest = this.onRestartTest.bind(this);
 
         this.state = {
-            testing: true,
+            testing: false, // DEBUGGING
             summonId: inventory.getAnimSummonId()
         };
 
@@ -171,9 +172,14 @@ class Awakener3d extends Component {
                             <img className="awekening-material three" src={mats[3].src} alt={mats[3].name}></img>
                             <img className="awekening-material four"  src={mats[4].src} alt={mats[4].name}></img>
                             <img className="awekening-material five"  src={mats[5].src} alt={mats[5].name}></img>
+                            <div className="glow-effect one"></div>
+                            <div className="glow-effect two"></div>
+                            <div className="glow-effect three"></div>
+                            <div className="glow-effect four"></div>
+                            <div className="glow-effect five"></div>
                             <div className="fade-from-white"></div>
                         </div>
-                        {this.state.testing && <button onClick={that.onRestart}>Restart</button>}
+                        {this.state.testing && <button onClick={that.onRestartTest}>Restart</button>}
                         {this.state.testing && <button onClick={that.onPlay}>Play!</button>}
                     </div>
                 </div>
@@ -213,8 +219,20 @@ class Awakener3d extends Component {
         // Camera
         this.camera.position.y = this.cameraStartY;
 
+        // Glowing animations
+        var glowEffects = this.overlay2dDiv.getElementsByClassName('glow-effect');
+        Array.prototype.forEach.call(glowEffects, function(glow){
+            // Remove animation className - resets back to resting state.
+            glow.classList.remove('animate');
+        });
+
         // 2D overlays
         Array.prototype.forEach.call(this.overlay2dDiv.children, function(child){
+            // skip glowEffects
+            if (Array.prototype.indexOf.call(glowEffects, child) !== -1) {
+                return;
+            }
+            // Reset opacity
             child.style.opacity = 1;
         });
 
@@ -329,6 +347,50 @@ class Awakener3d extends Component {
             })
             .start();
 
+        // Glowing effects
+        var glowOne = this.overlay2dDiv.querySelector('.glow-effect.one');
+        var glowTwo = this.overlay2dDiv.querySelector('.glow-effect.two');
+        var glowThree = this.overlay2dDiv.querySelector('.glow-effect.three');
+        var glowFour = this.overlay2dDiv.querySelector('.glow-effect.four');
+        var glowFive = this.overlay2dDiv.querySelector('.glow-effect.five');
+        tValues = { dummy: 0 };
+        new TWEEN.Tween()
+            .delay(GENERAL_DELAY + 300)
+            .to({ dummy: 1 }, 200)
+            .onComplete(function() {
+                glowOne.classList.add('animate');
+            })
+            .start();
+        new TWEEN.Tween()
+            .delay(GENERAL_DELAY + 310)
+            .to({ dummy: 1 }, 180)
+            .onComplete(function() {
+                glowTwo.classList.add('animate');
+            })
+            .start();
+        new TWEEN.Tween()
+            .delay(GENERAL_DELAY + 280)
+            .to({ dummy: 1 }, 190)
+            .onComplete(function() {
+                glowThree.classList.add('animate');
+            })
+            .start();
+        new TWEEN.Tween()
+            .delay(GENERAL_DELAY + 290)
+            .to({ dummy: 1 }, 205)
+            .onComplete(function() {
+                glowFour.classList.add('animate');
+            })
+            .start();
+        new TWEEN.Tween()
+            .delay(GENERAL_DELAY + 305)
+            .to({ dummy: 1 }, 187)
+            .onComplete(function() {
+                glowFive.classList.add('animate');
+            })
+            .start();
+
+
         // Camera
         tValues = { y: this.cameraStartY };
         new TWEEN.Tween(tValues)
@@ -347,6 +409,13 @@ class Awakener3d extends Component {
 
     onStop(){
         inventory.setAwakeUnitAnim( Summons.NONE.id );
+    }
+
+    onRestartTest() {
+        this.onRestart();
+        // Hide the annoying white overlay aaaaaa
+        var whiteOverlayDiv = this.overlay2dDiv.querySelector('.fade-from-white');
+        whiteOverlayDiv.style.opacity = 0;
     }
 
     animate( time ) {

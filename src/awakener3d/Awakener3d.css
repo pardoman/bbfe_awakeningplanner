@@ -46,6 +46,7 @@
     top: 0;
     width: 400px;
     height: 400px;
+    overflow: hidden;
 }
 
 .awakening-unit {
@@ -91,5 +92,61 @@
     width: 400px;
     height: 400px;
     background-color: white;
+    pointer-events: none;
 }
 
+.glow-effect {
+    position: absolute;
+    width:  20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: #f8fa81;
+    box-shadow: 0px 0px 20px 16px #f8fa81;
+    opacity: 0.0;
+    transform-origin: 10px 20px;
+    animation-duration: 0s;
+}
+
+.glow-effect.one {
+    left: 190px;
+    top: 244px;
+}
+.glow-effect.two {
+    left: 45px;
+    top: 195px;
+}
+.glow-effect.three {
+    left: 120px;
+    top: 141px;
+}
+.glow-effect.four {
+    left: 260px;
+    top: 141px;
+}
+.glow-effect.five {
+    left: 328px;
+    top: 195px;
+}
+
+.glow-effect.animate {
+    animation-name: glow-animation-frames;
+    animation-duration: 2.8s;
+}
+
+@keyframes glow-animation-frames {
+    40%  {
+            animation-timing-function: ease-out;
+            transform: scale(1,1);
+            opacity: 0.5;
+         }
+    60%  {
+            animation-timing-function: ease-out;
+            transform: scale(1.3, 5);
+            opacity: 0.8;
+         }
+    80% {
+            animation-timing-function: ease-in;
+            transform: scale(2.6, 10);
+            opacity: 0;
+         }
+}
