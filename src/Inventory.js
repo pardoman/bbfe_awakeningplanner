@@ -15,12 +15,14 @@ class Inventory {
     filters = [];    // runtime filtering of which summons to choose from.
     listeners = {};
     awakeningMode = false;
+    animSummonId = 0; // Keep in sync with Summon.js::createUnknownSummon()
 
     LISTEN = {
         SUMMON: 'LISTEN_SUMMON',
         MATS:   'LISTEN_MATS',
         FILTER: 'LISTEN_FILTER',
-        AWAKENING_MODE: 'LISTEN_AWAKENING_MODE'
+        AWAKENING_MODE: 'LISTEN_AWAKENING_MODE',
+        AWAKENING_ANIM: 'LISTEN_AWAKENING_ANIM',
     };
 
     getMaterials = function() {
@@ -178,6 +180,15 @@ class Inventory {
         this.update(3, this.materials[3].value - materialData[3]);
         this.update(4, this.materials[4].value - materialData[4]);
         this.update(5, this.materials[5].value - materialData[5]);
+    };
+
+    setAwakeUnitAnim = function(summonId) {
+        this.animSummonId = summonId;
+        this.notifyListeners(this.LISTEN.AWAKENING_ANIM);
+    };
+
+    getAnimSummonId = function() {
+        return this.animSummonId;
     };
 
     isAwakeningMode = function() {

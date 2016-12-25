@@ -88,7 +88,7 @@ class SummonView extends Component {
     onAwakeThisUnit() {
         inventory.toggleAwakeningMode();
         inventory.awakeUnit(this.state.summonId, this.state.summonKey);
-        // TODO: Do Awakening Animation 
+        inventory.setAwakeUnitAnim(this.state.summonId);
     }
 
     onRemoveThisSummon() {

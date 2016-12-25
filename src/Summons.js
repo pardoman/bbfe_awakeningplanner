@@ -487,4 +487,8 @@ for (var summonKey in SUMMONS) {
     }
 }
 
+// Special Summon - Not displayed, used internally. 
+SUMMONS.NONE = Summon.createUnknownSummon();
+SUMMONS[ SUMMONS.NONE.id ] = SUMMONS.NONE;
+
 export default SUMMONS;

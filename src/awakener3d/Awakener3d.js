@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Summons from '../Summons';
 import AweConsts from '../Const';
+import inventory from '../Inventory';
 import TWEEN from 'tween.js';
 
 /* global THREE */
@@ -31,11 +32,15 @@ class Awakener3d extends Component {
 
      constructor(props){
         super(props)
+        
         this.animate = this.animate.bind(this);
         this.onPlay = this.onPlay.bind(this);
         this.onRestart = this.onRestart.bind(this);
+        this.onRunAnimation = this.onRunAnimation.bind(this);
+
         this.state = {
-            summonId: Summons.VAAN.id // Todo: Remove hardcoded value and use props value
+            testing: true,
+            summonId: inventory.getAnimSummonId()
         };
 
         this.uv_unit_stand = [
@@ -69,6 +74,8 @@ class Awakener3d extends Component {
 
     componentDidMount() {
 
+        inventory.addListener( this.onRunAnimation, inventory.LISTEN.AWAKENING_ANIM );
+
         var SCREEN_WIDTH = 400;
         var SCREEN_HEIGHT = 400;
         this.renderer = new THREE.WebGLRenderer( { antialias: true } );
@@ -97,6 +104,9 @@ class Awakener3d extends Component {
     }
 
     componentWillUnmount() {
+
+        inventory.removeListener( this.onRunAnimation, inventory.LISTEN.AWAKENING_ANIM );
+
         this.running = false;
         this.rendererDiv.removeChild( this.renderer.domElement );
         this.renderer.dispose();
@@ -112,6 +122,12 @@ class Awakener3d extends Component {
         this.meshInnerRing = null;
         this.meshOuterRing = null;
         this.allMeshes = null;
+    }
+
+    componentDidUpdate() {
+        if (this.state.summonId !== Summons.NONE.id) {
+            this.onPlay();
+        }
     }
 
     setRendererDiv(theDiv) {
@@ -135,21 +151,32 @@ class Awakener3d extends Component {
             AweConsts.materials[ materialIds[4] ],
             AweConsts.materials[ materialIds[5] ]
         ]
+
+        var topContainerClassName = this.state.testing ? '' : 'awakener3d-popup-container';
+        if (topContainerClassName && this.state.summonId === Summons.NONE.id) {
+            topContainerClassName += ' hidden';
+        }
+
         return (
-            <div className="awakener3d-container">
-                <div className="awakening-3d" ref={(theDiv) => { that.setRendererDiv(theDiv); }}>
+            <div className={topContainerClassName}>
+                {!this.state.testing && <div className="awakener3d-popup-black"></div>}
+                <div className={this.state.testing ? '' : 'awakener3d-popup'}>
+                    <div className="awakener3d-container">
+                        <div className="awakening-3d" ref={(theDiv) => { that.setRendererDiv(theDiv); }}>
+                        </div>
+                        <div className="awakening-2d" ref={(theDiv) => { that.set2dOverlay(theDiv); }} >
+                            <img className="awakening-unit" src={summonData.src} alt={summonData.name}></img>
+                            <img className="awekening-material one"   src={mats[1].src} alt={mats[1].name}></img>
+                            <img className="awekening-material two"   src={mats[2].src} alt={mats[2].name}></img>
+                            <img className="awekening-material three" src={mats[3].src} alt={mats[3].name}></img>
+                            <img className="awekening-material four"  src={mats[4].src} alt={mats[4].name}></img>
+                            <img className="awekening-material five"  src={mats[5].src} alt={mats[5].name}></img>
+                            <div className="fade-from-white"></div>
+                        </div>
+                        {this.state.testing && <button onClick={that.onRestart}>Restart</button>}
+                        {this.state.testing && <button onClick={that.onPlay}>Play!</button>}
+                    </div>
                 </div>
-                <div className="awakening-2d" ref={(theDiv) => { that.set2dOverlay(theDiv); }} >
-                    <img className="awakening-unit" src={summonData.src} alt={summonData.name}></img>
-                    <img className="awekening-material one"   src={mats[1].src} alt={mats[1].name}></img>
-                    <img className="awekening-material two"   src={mats[2].src} alt={mats[2].name}></img>
-                    <img className="awekening-material three" src={mats[3].src} alt={mats[3].name}></img>
-                    <img className="awekening-material four"  src={mats[4].src} alt={mats[4].name}></img>
-                    <img className="awekening-material five"  src={mats[5].src} alt={mats[5].name}></img>
-                    <div className="fade-from-white"></div>
-                </div>
-                <button onClick={that.onRestart}>Restart</button>
-                <button onClick={that.onPlay}>Play!</button>
             </div>
         );
     }
@@ -296,10 +323,7 @@ class Awakener3d extends Component {
     }
 
     onStop(){
-        // Ehh, now what?
-        console.log('Animation stopped. Do something.');
-
-        this.onRestart();
+        inventory.setAwakeUnitAnim( Summons.NONE.id );
     }
 
     animate( time ) {
@@ -356,6 +380,12 @@ class Awakener3d extends Component {
         this.allMeshes.push( mesh );
 
         return mesh
+    }
+
+    onRunAnimation() {
+        this.setState({
+            summonId: inventory.getAnimSummonId()
+        });
     }
     
 }

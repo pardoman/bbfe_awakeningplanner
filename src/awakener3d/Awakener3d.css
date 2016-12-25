@@ -1,14 +1,36 @@
-.awakener3d-container {
-    position: relative;
+
+.awakener3d-popup-container {
+    position: fixed;
+}
+
+.awakener3d-popup-container.hidden {
+    display: none;
+}
+
+.awakener3d-popup-black {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.8;
+    z-index: 80;
 }
 
 .awakener3d-popup {
     position: fixed;
     left: 50%;
     top: 50%;
-    z-index: 100;
     transform: translate(-50%,-50%);
+    z-index: 100;
 }
+
+
+.awakener3d-container {
+    position: relative;
+}
+
 
 .awakening-3d {
     position: relative;

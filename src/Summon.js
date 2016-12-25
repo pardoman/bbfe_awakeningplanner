@@ -25,6 +25,21 @@ class Summon {
     materials = [];
     origin = AweConst.Origin.FF_BE.id; // assume FFBE by default
 
+    static createUnknownSummon() {
+
+        var savedId = SUMMON_ID;
+        var summon = new Summon('Unknown');
+        summon.id = 0;
+        summon.fairiesWrit(1);
+        summon.prismaticHorn(1);
+        summon.calamityGem(1);
+        summon.rainbowBloom(1);
+        summon.calamityWrit(1);
+        // No divine crystal, muahahaha!
+        SUMMON_ID = savedId;
+        return summon;
+    }
+
     setImage = function(_src) {
         this.src = _src;
         return this;
