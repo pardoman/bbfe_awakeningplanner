@@ -285,7 +285,7 @@ class Awakener3d extends Component {
         new TWEEN.Tween(tValues)
             .easing(TWEEN.Easing.Cubic.Out)
             .delay(OUTRO_DELAY + 700)
-            .to({ y: that.cameraStartY + 400 }, 600)
+            .to({ y: that.cameraStartY + 400 }, 1000)
             .onUpdate(function() {
                 that.camera.position.y = this.y;
             })
