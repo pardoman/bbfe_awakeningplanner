@@ -137,7 +137,7 @@ class Awakener3d extends Component {
         ]
         return (
             <div className="awakener3d-container">
-                <div ref={(theDiv) => { that.setRendererDiv(theDiv); }}>
+                <div className="awakening-3d" ref={(theDiv) => { that.setRendererDiv(theDiv); }}>
                 </div>
                 <div className="awakening-2d" ref={(theDiv) => { that.set2dOverlay(theDiv); }} >
                     <img className="awakening-unit" src={summonData.src} alt={summonData.name}></img>

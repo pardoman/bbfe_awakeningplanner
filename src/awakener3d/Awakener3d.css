@@ -2,6 +2,14 @@
     position: relative;
 }
 
+.awakening-3d {
+    position: relative;
+    left: calc( 50% - 200px );
+    top: 0;
+    width: 400px;
+    height: 400px;
+}
+
 .awakening-2d {
     position: absolute;
     left: calc( 50% - 200px );
