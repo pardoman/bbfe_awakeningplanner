@@ -18,6 +18,7 @@ class Awakener3d extends Component {
     camera;
     scene;
 
+    meshBaseAura;
     meshUnitStand;
     meshMatHolder;
     meshInnerRing;
@@ -105,6 +106,7 @@ class Awakener3d extends Component {
         this.renderer = null;
         this.camera = null;
         this.scene = null;
+        this.meshBaseAura = null;
         this.meshUnitStand = null;
         this.meshMatHolder = null;
         this.meshInnerRing = null;
@@ -176,6 +178,7 @@ class Awakener3d extends Component {
         this.meshInnerRing.position.y -= 7; // Move down a bunch
         this.meshInnerRing.material.opacity = 0.5;
         this.meshOuterRing.position.y -= 5; // Move down a bit
+        this.meshBaseAura.material.opacity = 0.3;
 
         // Camera
         this.camera.position.y = this.cameraStartY;
@@ -184,6 +187,16 @@ class Awakener3d extends Component {
         Array.prototype.forEach.call(this.overlay2dDiv.children, function(child){
             child.style.opacity = 1;
         });
+
+        // TESTING ONLY
+        /*
+        var whiteOverlayDiv = this.overlay2dDiv.querySelector('.fade-from-white');
+        whiteOverlayDiv.style.opacity = 0;
+        this.meshMatHolder.material.opacity = 0;
+        this.meshInnerRing.material.opacity = 0;
+        this.meshOuterRing.material.opacity = 0;
+        // */
+        // TESTING ONLY
     }
 
     // Runs the animation from scratch
@@ -307,10 +320,12 @@ class Awakener3d extends Component {
 
     createMeshes(scene) {
 
-         // Create Material
-         var textureLoader = new THREE.TextureLoader();
-         var texture = textureLoader.load("awaken_ring.png");
+        // Create Material
+        var textureLoader = new THREE.TextureLoader();
+        var texture = textureLoader.load("awaken_ring.png");
+        var texture2 = textureLoader.load("awakening_aura.png");
 
+        this.meshBaseAura = this.createTexturedMesh( scene, texture2, 400, 400 );
         this.meshUnitStand = this.createTexturedMesh( scene, texture, 110, 110, this.uv_unit_stand );
         this.meshMatHolder = this.createTexturedMesh( scene, texture, 290, 290, this.uv_mat_holder );
         this.meshInnerRing = this.createTexturedMesh( scene, texture, 280, 280, this.uv_inner_ring );
