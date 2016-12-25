@@ -22,11 +22,13 @@ class ContentSummons extends Component {
     componentDidMount() {
       inventory.addListener( this.onInventoryChange, inventory.LISTEN.SUMMON );
       inventory.addListener( this.onInventoryChange, inventory.LISTEN.MATS );
+      inventory.addListener( this.onInventoryChange, inventory.LISTEN.AWAKENING_MODE );
     }
 
     componentWillUnmount() {
       inventory.removeListener( this.onInventoryChange, inventory.LISTEN.SUMMON );
       inventory.removeListener( this.onInventoryChange, inventory.LISTEN.MATS );
+      inventory.removeListener( this.onInventoryChange, inventory.LISTEN.AWAKENING_MODE );
     }
 
     render() {
@@ -34,7 +36,6 @@ class ContentSummons extends Component {
         var summonCount = that.state.summons.length;
         var hasSummons = (summonCount > 0); 
         var canAwake = hasSummons && (inventory.getUnitsThatCanBeAwaken().length > 0);
-        var bAwakeningMode = that.state.isAwakeningMode;
         return (
             <tbody>
 
@@ -55,8 +56,7 @@ class ContentSummons extends Component {
                       return <SummonView 
                                 summonId={id} 
                                 key={summonKey} 
-                                summonKey={summonKey} 
-                                awakeningMode={bAwakeningMode} 
+                                summonKey={summonKey}
                             />;
                 })}
                 {hasSummons && <AweHeader />}
@@ -86,7 +86,7 @@ class ContentSummons extends Component {
 
     getNewStateObject() {
       return { 
-        isAwakeningMode: false,
+        isAwakeningMode: inventory.isAwakeningMode(),
         summons: inventory.summons.concat(), 
         summonKeys: inventory.summonKeys.concat()
       };
@@ -97,9 +97,7 @@ class ContentSummons extends Component {
     }
 
     toggleAwakeningMode() {
-        this.setState({
-            isAwakeningMode: !this.state.isAwakeningMode
-        });
+        inventory.toggleAwakeningMode();
     }
 
 }

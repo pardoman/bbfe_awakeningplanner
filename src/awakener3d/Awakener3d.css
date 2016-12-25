@@ -2,6 +2,14 @@
     position: relative;
 }
 
+.awakener3d-popup {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 100;
+    transform: translate(-50%,-50%);
+}
+
 .awakening-3d {
     position: relative;
     left: calc( 50% - 200px );

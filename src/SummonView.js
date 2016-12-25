@@ -14,15 +14,33 @@ class SummonView extends Component {
         this.state = { 
             summonId: props.summonId, 
             summonKey: props.summonKey,
-            awakeningMode: props.awakeningMode 
+            awakeningMode: inventory.isAwakeningMode()
         };
         this.onRemoveThisSummon = this.onRemoveThisSummon.bind(this);
+        this.onAwakeUnit = this.onAwakeUnit.bind(this);
+        this.onAwakeningModeChange = this.onAwakeningModeChange.bind(this);
     };
+
+    componentDidMount() {
+      inventory.addListener( this.onAwakeningModeChange, inventory.LISTEN.AWAKENING_MODE );
+    }
+
+    componentWillUnmount() {
+      inventory.removeListener( this.onAwakeningModeChange, inventory.LISTEN.AWAKENING_MODE );
+    }
 
     render() {
         var summonData = this.getSummonData(this.state.summonId);
+        var isAwakeningMode = this.state.awakeningMode;
+        var canAwake = isAwakeningMode && inventory.canAwakeUnit(this.state.summonId);
+
+        var rowClassName = '';
+        if (isAwakeningMode && !canAwake) {
+            rowClassName = 'unit-cant-awake';
+        }
+
         return (
-            <tr>
+            <tr className={rowClassName}>
                 <td>
                     <a href={summonData.wiki} target="blank">
                         <img src={summonData.src} className="tableCellImage" alt={summonData.name} title={summonData.name} />
@@ -38,11 +56,13 @@ class SummonView extends Component {
                             </td>;
                 })}
                 <td>
-                    <button 
-                        className="Button-Remove-Summon" 
-                        onClick={this.onRemoveThisSummon}>
-                        ✕
-                    </button>
+                    {isAwakeningMode &&  canAwake && <span className="Button-Action can-awake">✓</span>}
+                    {isAwakeningMode && !canAwake && <span className="Button-Action cannot-awake">✕</span>}
+                    {!isAwakeningMode && <button 
+                                            className="Button-Action" 
+                                            onClick={this.onRemoveThisSummon}>
+                                            ✖
+                                        </button>}
                 </td>
             </tr>
         );
@@ -50,6 +70,15 @@ class SummonView extends Component {
 
     onRemoveThisSummon() {
         inventory.removeSummon( this.state.summonId, this.state.summonKey );
+    }
+
+    onAwakeUnit() {
+        var summonData = this.getSummonData(this.state.summonId);
+        console.log('TODO: Awake ' + summonData.name);
+    }
+
+    onAwakeningModeChange() {
+        this.setState({ awakeningMode: inventory.isAwakeningMode() });
     }
 
     getNewStateObject() {

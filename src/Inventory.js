@@ -14,11 +14,13 @@ class Inventory {
     summonKeys = []; // runtime bookeeping array. No need to persist. I need this because React.
     filters = [];    // runtime filtering of which summons to choose from.
     listeners = {};
+    awakeningMode = false;
 
     LISTEN = {
         SUMMON: 'LISTEN_SUMMON',
         MATS:   'LISTEN_MATS',
         FILTER: 'LISTEN_FILTER',
+        AWAKENING_MODE: 'LISTEN_AWAKENING_MODE'
     };
 
     //material
@@ -123,13 +125,7 @@ class Inventory {
         var unitsThatCanBeAwaken = [];
         var that = this;
         this.summons.forEach(function(summonId, index){
-            var data = SummonData[summonId];
-            var canAwake = that.materials[0].value >= data.materials[0] &&
-                           that.materials[1].value >= data.materials[1] &&
-                           that.materials[2].value >= data.materials[2] &&
-                           that.materials[3].value >= data.materials[3] &&
-                           that.materials[4].value >= data.materials[4] &&
-                           that.materials[5].value >= data.materials[5];
+            var canAwake = that.canAwakeUnit(summonId);
             if (canAwake) {
                  unitsThatCanBeAwaken.push({
                      id: summonId, 
@@ -138,6 +134,18 @@ class Inventory {
             }
         });
         return unitsThatCanBeAwaken;
+    };
+
+    // true, if the summonId can be awaken given the materials available
+    canAwakeUnit = function(summonId) {
+        var data = SummonData[summonId];
+        var bCanAwake = this.materials[0].value >= data.materials[0] &&
+                        this.materials[1].value >= data.materials[1] &&
+                        this.materials[2].value >= data.materials[2] &&
+                        this.materials[3].value >= data.materials[3] &&
+                        this.materials[4].value >= data.materials[4] &&
+                        this.materials[5].value >= data.materials[5];
+        return bCanAwake;
     };
 
     // Removes unit from the "selected units" section, and
@@ -184,6 +192,15 @@ class Inventory {
         // Signal
         this.notifyListeners(this.LISTEN.SUMMON);
         this.notifyListeners(this.LISTEN.MATS);
+    };
+
+    isAwakeningMode = function() {
+        return this.awakeningMode;
+    };
+
+    toggleAwakeningMode = function() {
+        this.awakeningMode = !this.awakeningMode;
+        this.notifyListeners(this.LISTEN.AWAKENING_MODE);
     };
 
     // TODO: Change and use proper event listeners

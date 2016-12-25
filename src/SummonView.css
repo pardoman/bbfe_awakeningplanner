@@ -1,10 +1,26 @@
 
-.Button-Remove-Summon {
-    padding: 5px;
+.unit-cant-awake {
+    opacity: 0.3;
+}
+
+.Button-Action {
+    position: relative;
+    top: -2px;
+    color: #676464;
     margin-left: 1rem;
     width: 2rem;
     height: 2rem;
-    font-size: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
 }
 
+.can-awake {
+    color: green;
+}
 
+.cannot-awake {
+    color: red;
+    cursor: not-allowed;
+}
