@@ -24,3 +24,7 @@
     color: red;
     cursor: not-allowed;
 }
+
+.mat-missing {
+    background-color: #ef9a9a; 
+}

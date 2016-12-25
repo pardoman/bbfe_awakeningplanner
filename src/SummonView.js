@@ -14,19 +14,23 @@ class SummonView extends Component {
         this.state = { 
             summonId: props.summonId, 
             summonKey: props.summonKey,
+            inventoryMats: inventory.getMaterials(),
             awakeningMode: inventory.isAwakeningMode()
         };
         this.onRemoveThisSummon = this.onRemoveThisSummon.bind(this);
         this.onAwakeUnit = this.onAwakeUnit.bind(this);
+        this.onMaterialChange = this.onMaterialChange.bind(this);
         this.onAwakeningModeChange = this.onAwakeningModeChange.bind(this);
     };
 
     componentDidMount() {
-      inventory.addListener( this.onAwakeningModeChange, inventory.LISTEN.AWAKENING_MODE );
+        inventory.addListener( this.onMaterialChange, inventory.LISTEN.MATS );
+        inventory.addListener( this.onAwakeningModeChange, inventory.LISTEN.AWAKENING_MODE );
     }
 
     componentWillUnmount() {
-      inventory.removeListener( this.onAwakeningModeChange, inventory.LISTEN.AWAKENING_MODE );
+        inventory.removeListener( this.onMaterialChange, inventory.LISTEN.MATS );
+        inventory.removeListener( this.onAwakeningModeChange, inventory.LISTEN.AWAKENING_MODE );
     }
 
     render() {
@@ -38,6 +42,8 @@ class SummonView extends Component {
         if (isAwakeningMode && !canAwake) {
             rowClassName = 'unit-cant-awake';
         }
+        
+        const inventoryMats = this.state.inventoryMats;
 
         return (
             <tr className={rowClassName}>
@@ -49,7 +55,7 @@ class SummonView extends Component {
                 {summonData.materials.map(function(matCount, index) {
                     return <td key={index}>
                                 <input
-                                    className="tableCell"
+                                    className={"tableCell" + (inventoryMats[index] < matCount ? ' mat-missing' : '')}
                                     value={matCount}
                                     readOnly
                                 />
@@ -75,6 +81,10 @@ class SummonView extends Component {
     onAwakeUnit() {
         var summonData = this.getSummonData(this.state.summonId);
         console.log('TODO: Awake ' + summonData.name);
+    }
+
+    onMaterialChange() {
+        this.setState({ inventoryMats: inventory.getMaterials() });
     }
 
     onAwakeningModeChange() {

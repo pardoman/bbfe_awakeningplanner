@@ -23,6 +23,10 @@ class Inventory {
         AWAKENING_MODE: 'LISTEN_AWAKENING_MODE'
     };
 
+    getMaterials = function() {
+        return this.materials.map( (mat) => {return mat.value; });
+    };
+
     //material
     update = function(aweMatId, value) {
         // Negatives not allowed
