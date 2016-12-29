@@ -73,8 +73,8 @@ class ContentSummons extends Component {
                                 {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
                                 {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
                                 {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
-                                {canAwake ? ( awakeningMode ? 'Cancel Awakening' : ' Awake! ') 
-                                          : 'Not enough materials to awake a unit'}
+                                {canAwake ? ( awakeningMode ? 'Cancel awakening' : ' Awaken ') 
+                                          : 'Not enough materials to awaken a unit'}
                                 {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
                                 {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
                                 {canAwake && !awakeningMode && <img src={rarity6} alt="6start" />}
