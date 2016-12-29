@@ -8,6 +8,8 @@ import TWEEN from 'tween.js';
 
 import './Awakener3d.css';
 
+import IMG_TOP_LEFT from '../images/frames/pc_cmn_frame_lt.png';
+
 
 /**
  * Filters the summons that are shown in component <AddSummon />
@@ -178,6 +180,16 @@ class Awakener3d extends Component {
                             <div className="glow-effect four"></div>
                             <div className="glow-effect five"></div>
                             <div className="fade-from-white"></div>
+                        </div>
+                        <div className="frame-border">
+                            <div className="border top" />
+                            <div className="border bottom" />
+                            <div className="border right" />
+                            <div className="border left" />
+                            <img className="top-left" src={IMG_TOP_LEFT} />
+                            <img className="top-right" src={IMG_TOP_LEFT} />
+                            <img className="bottom-right" src={IMG_TOP_LEFT} />
+                            <img className="bottom-left" src={IMG_TOP_LEFT} />
                         </div>
                         {this.state.testing && <button onClick={that.onRestartTest}>Restart</button>}
                         {this.state.testing && <button onClick={that.onPlay}>Play!</button>}
@@ -408,7 +420,7 @@ class Awakener3d extends Component {
     }
 
     onStop(){
-        inventory.setAwakeUnitAnim( Summons.NONE.id );
+        //inventory.setAwakeUnitAnim( Summons.NONE.id );
     }
 
     onRestartTest() {
