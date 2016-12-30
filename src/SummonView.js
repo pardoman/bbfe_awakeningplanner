@@ -19,7 +19,6 @@ class SummonView extends Component {
         };
         this.onAwakeThisUnit = this.onAwakeThisUnit.bind(this);
         this.onRemoveThisSummon = this.onRemoveThisSummon.bind(this);
-        this.onAwakeUnit = this.onAwakeUnit.bind(this);
         this.onMaterialChange = this.onMaterialChange.bind(this);
         this.onAwakeningModeChange = this.onAwakeningModeChange.bind(this);
     };
@@ -69,7 +68,7 @@ class SummonView extends Component {
                                     className="awake-this-unit"
                                     onClick={this.onAwakeThisUnit}
                                 >
-                                    Awake {summonData.name}
+                                    Awaken {summonData.name}
                                 </button>
                              </td>}
                 <td>
@@ -93,11 +92,6 @@ class SummonView extends Component {
 
     onRemoveThisSummon() {
         inventory.removeSummon( this.state.summonId, this.state.summonKey );
-    }
-
-    onAwakeUnit() {
-        var summonData = this.getSummonData(this.state.summonId);
-        console.log('TODO: Awake ' + summonData.name);
     }
 
     onMaterialChange() {
