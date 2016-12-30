@@ -420,7 +420,7 @@ class Awakener3d extends Component {
     }
 
     onStop(){
-        //inventory.setAwakeUnitAnim( Summons.NONE.id );
+        inventory.setAwakeUnitAnim( Summons.NONE.id );
     }
 
     onRestartTest() {
