@@ -44,10 +44,10 @@ class ContentSummons extends Component {
                 <tr>
                     <td></td>
                     {hasSummons &&
-                        <td colSpan="6">Your summons ({summonCount})</td>
+                        <td colSpan="6">Your units ({summonCount})</td>
                     }
                     {!hasSummons &&
-                        <td colSpan="6">Add the summons you want to awaken!</td>
+                        <td colSpan="6">Add the units you want to awaken!</td>
                     }
                 </tr>
 
