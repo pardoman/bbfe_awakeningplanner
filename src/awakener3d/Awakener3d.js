@@ -186,10 +186,10 @@ class Awakener3d extends Component {
                             <div className="border bottom" />
                             <div className="border right" />
                             <div className="border left" />
-                            <img className="top-left" src={IMG_TOP_LEFT} />
-                            <img className="top-right" src={IMG_TOP_LEFT} />
-                            <img className="bottom-right" src={IMG_TOP_LEFT} />
-                            <img className="bottom-left" src={IMG_TOP_LEFT} />
+                            <img className="top-left" src={IMG_TOP_LEFT} alt="corner-decoration" />
+                            <img className="top-right" src={IMG_TOP_LEFT} alt="corner-decoration" />
+                            <img className="bottom-right" src={IMG_TOP_LEFT} alt="corner-decoration" />
+                            <img className="bottom-left" src={IMG_TOP_LEFT} alt="corner-decoration" />
                         </div>
                         {this.state.testing && <button onClick={that.onRestartTest}>Restart</button>}
                         {this.state.testing && <button onClick={that.onPlay}>Play!</button>}
