@@ -75,7 +75,21 @@ class Awakener3d extends Component {
         ];
     };
 
+    detectWebGL() {
+        // From: 
+        // https://github.com/mrdoob/three.js/blob/master/examples/js/Detector.js
+        try {
+			var canvas = document.createElement( 'canvas' ); return !! ( window.WebGLRenderingContext && ( canvas.getContext( 'webgl' ) || canvas.getContext( 'experimental-webgl' ) ) );
+		} catch ( e ) {
+			return false;
+		}
+    }
+
     componentDidMount() {
+
+        if (!this.detectWebGL()) {
+            return;
+        }
 
         inventory.addListener( this.onRunAnimation, inventory.LISTEN.AWAKENING_ANIM );
 
@@ -111,8 +125,10 @@ class Awakener3d extends Component {
         inventory.removeListener( this.onRunAnimation, inventory.LISTEN.AWAKENING_ANIM );
 
         this.running = false;
-        this.rendererDiv.removeChild( this.renderer.domElement );
-        this.renderer.dispose();
+        if (this.renderer) {
+            this.rendererDiv.removeChild( this.renderer.domElement );
+            this.renderer.dispose();
+        }
         
         this.overlay2dDiv = null;
         this.rendererDiv = null;
