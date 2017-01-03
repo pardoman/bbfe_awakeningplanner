@@ -25,6 +25,21 @@ class Summon {
     materials = [];
     origin = AweConst.Origin.FF_BE.id; // assume FFBE by default
 
+    static createUnknownSummon() {
+
+        var savedId = SUMMON_ID;
+        var summon = new Summon('Unknown');
+        summon.id = 0;
+        summon.fairiesWrit(1);
+        summon.prismaticHorn(1);
+        summon.calamityGem(1);
+        summon.rainbowBloom(1);
+        summon.calamityWrit(1);
+        // No divine crystal, muahahaha!
+        SUMMON_ID = savedId;
+        return summon;
+    }
+
     setImage = function(_src) {
         this.src = _src;
         return this;
@@ -66,6 +81,17 @@ class Summon {
 
     getMaterialCount = function(materialId) {
         return this.materials[materialId] || 0;
+    };
+
+    // Returns an Array with the ids of the 5 materials required for awakening.
+    getMaterialIds = function() {
+        var matIds = [];
+        this.materials.forEach(function(count, id){
+            if (count > 0) {
+                matIds.push(id);
+            }
+        });
+        return matIds;
     };
 
     static internal_setNextSummonId = function(value) {

@@ -14,11 +14,19 @@ class Inventory {
     summonKeys = []; // runtime bookeeping array. No need to persist. I need this because React.
     filters = [];    // runtime filtering of which summons to choose from.
     listeners = {};
+    awakeningMode = false;
+    animSummonId = 0; // Keep in sync with Summon.js::createUnknownSummon()
 
     LISTEN = {
         SUMMON: 'LISTEN_SUMMON',
         MATS:   'LISTEN_MATS',
         FILTER: 'LISTEN_FILTER',
+        AWAKENING_MODE: 'LISTEN_AWAKENING_MODE',
+        AWAKENING_ANIM: 'LISTEN_AWAKENING_ANIM',
+    };
+
+    getMaterials = function() {
+        return this.materials.map( (mat) => {return mat.value; });
     };
 
     //material
@@ -114,6 +122,82 @@ class Inventory {
 
         // Negative values are fine. It means we have a surpluse in materials
         return ret;
+    };
+
+    // Returns an array with {id, key} of the units that can be awaken 
+    // given the materials currently in the inventory.
+    getUnitsThatCanBeAwaken = function() {
+
+        var unitsThatCanBeAwaken = [];
+        var that = this;
+        this.summons.forEach(function(summonId, index){
+            var canAwake = that.canAwakeUnit(summonId);
+            if (canAwake) {
+                 unitsThatCanBeAwaken.push({
+                     id: summonId, 
+                     key: that.summonKeys[index]
+                });
+            }
+        });
+        return unitsThatCanBeAwaken;
+    };
+
+    // true, if the summonId can be awaken given the materials available
+    canAwakeUnit = function(summonId) {
+        var data = SummonData[summonId];
+        var bCanAwake = this.materials[0].value >= data.materials[0] &&
+                        this.materials[1].value >= data.materials[1] &&
+                        this.materials[2].value >= data.materials[2] &&
+                        this.materials[3].value >= data.materials[3] &&
+                        this.materials[4].value >= data.materials[4] &&
+                        this.materials[5].value >= data.materials[5];
+        return bCanAwake;
+    };
+
+    // Removes unit from the "selected units" section, and
+    // also removes the materials required to awaken said unit.
+    awakeUnit = function(summonId, summonKey) {
+
+        if (summonKey === undefined) {
+            return;
+        }
+
+        // First, check the unit can be awaken
+        var canAwake = this.canAwakeUnit(summonId);
+        if (!canAwake) {
+            return;
+        }
+
+        // Remove Summon
+        this.removeSummon(summonId, summonKey);
+
+        // Remove materials
+        // Unrolling the loop... for performance... yeah right.
+        var materialData = SummonData[summonId].materials;
+        this.update(0, this.materials[0].value - materialData[0]);
+        this.update(1, this.materials[1].value - materialData[1]);
+        this.update(2, this.materials[2].value - materialData[2]);
+        this.update(3, this.materials[3].value - materialData[3]);
+        this.update(4, this.materials[4].value - materialData[4]);
+        this.update(5, this.materials[5].value - materialData[5]);
+    };
+
+    setAwakeUnitAnim = function(summonId) {
+        this.animSummonId = summonId;
+        this.notifyListeners(this.LISTEN.AWAKENING_ANIM);
+    };
+
+    getAnimSummonId = function() {
+        return this.animSummonId;
+    };
+
+    isAwakeningMode = function() {
+        return this.awakeningMode;
+    };
+
+    toggleAwakeningMode = function() {
+        this.awakeningMode = !this.awakeningMode;
+        this.notifyListeners(this.LISTEN.AWAKENING_MODE);
     };
 
     // TODO: Change and use proper event listeners

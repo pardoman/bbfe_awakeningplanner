@@ -8,27 +8,16 @@ class MyStash extends Component {
         super(props);
         this.state = this.getNewStateObject();
         this.handleChange = this.handleChange.bind(this);
+        this.onMaterialChange = this.onMaterialChange.bind(this);
     }
 
-    handleChange(event) {
-        var strValue = event.currentTarget.value;
-        if (!strValue) {
-            strValue = '0';
-        }
-        var newValue = parseInt(strValue, 10);
-        if (!Number.isInteger(newValue))
-            return;
+    componentDidMount() {
+        inventory.addListener( this.onMaterialChange, inventory.LISTEN.MATS );
+    }
 
-        // Negatives not allowed
-        newValue = Math.max(0, newValue);
-        
-        var materialId = parseInt(event.currentTarget.getAttribute('data-material-id'), 10);
-        if (!Number.isInteger(materialId))
-            return;
-
-        inventory.update(materialId, newValue);
-        this.setState( this.getNewStateObject() );
-    };
+    componentWillUnmount() {
+        inventory.removeListener( this.onMaterialChange, inventory.LISTEN.MATS );
+    }
 
     render() {
         var that = this;
@@ -64,6 +53,33 @@ class MyStash extends Component {
             materials: matCopy
         };
     }
+
+    handleChange(event) {
+
+        event.preventDefault();
+
+        var strValue = event.currentTarget.value;
+        if (!strValue) {
+            strValue = '0';
+        }
+        var newValue = parseInt(strValue, 10);
+        if (!Number.isInteger(newValue))
+            return;
+
+        // Negatives not allowed
+        newValue = Math.max(0, newValue);
+        
+        var materialId = parseInt(event.currentTarget.getAttribute('data-material-id'), 10);
+        if (!Number.isInteger(materialId))
+            return;
+
+        inventory.update(materialId, newValue);
+    }
+
+    onMaterialChange() {
+        this.setState( this.getNewStateObject() );
+    }
+
 }
 
 export default MyStash;

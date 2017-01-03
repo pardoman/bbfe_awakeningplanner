@@ -17,15 +17,18 @@ class FilterSummons extends Component {
         this.onSelection = this.onSelection.bind(this);
         this.onInventoryChange = this.onInventoryChange.bind(this);
 
+        var originData;
+        var sameOriginFilterFn = function( summon ) {
+            return summon.origin === originData.id;
+        };
+
         // Show origin-filter button only for those that contain units
         this.availableOrigins = [];
         for (var key in AweConst.Origin) {
             if (AweConst.Origin.hasOwnProperty(key)){
                 // Check to see if there is at least one unit from this particular origin
-                var originData = AweConst.Origin[key]; 
-                var res = SUMMONS.ALL.filter( summon => {
-                    return summon.origin === originData.id;
-                });
+                originData = AweConst.Origin[key]; 
+                var res = SUMMONS.ALL.filter( sameOriginFilterFn );
                 if (res.length > 0) {
                     this.availableOrigins.push( originData );
                 }
