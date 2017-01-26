@@ -391,6 +391,42 @@ SUMMONS.CERIUS = new Summon('Cerius')
     .divineCrystal(5)
     ;
     
+
+import imgXiao from './images/summons/Unit-Xiao-6.png';
+SUMMONS.XIAO = new Summon('Xiao')
+    .setImage(imgXiao)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exviuswiki.com/Xiao')
+    .fairiesWrit(20)
+    .rainbowBloom(10)
+    .calamityWrit(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
+
+import imgLing from './images/summons/Unit-Ling-6.png';
+SUMMONS.LING = new Summon('Ling')
+    .setImage(imgLing)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exviuswiki.com/Ling')
+    .rainbowBloom(20)
+    .fairiesWrit(10)
+    .prismaticHorn(10)
+    .calamityWrit(5)
+    .divineCrystal(5)
+    ;
+    
+import imgYun from './images/summons/Unit-Yun-6.png';
+SUMMONS.YUN = new Summon('Yun')
+    .setImage(imgYun)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exviuswiki.com/Yun')
+    .prismaticHorn(20)
+    .fairiesWrit(10)
+    .rainbowBloom(10)
+    .calamityGem(5)
+    .divineCrystal(5)
+    ;
     
 
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
