@@ -505,6 +505,30 @@ SUMMONS.WHITEKNIGHTNOEL = new Summon('White Knight Noel')
     .divineCrystal(5)
     ;
 
+import imgPrimm from './images/summons/Unit-Primm-6.png';
+SUMMONS.PRIMM = new Summon('Primm')
+    .setImage(imgPrimm)
+    .setOrigin(AweConst.Origin.FF_SoM)
+    .setWiki('http://exvius.gamepedia.com/Primm')
+    .rainbowBloom(20)
+    .fairiesWrit(10)
+    .calamityWrit(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
+    
+import imgRandi from './images/summons/Unit-Randi-6.png';
+SUMMONS.RANDI = new Summon('Randi')
+    .setImage(imgRandi)
+    .setOrigin(AweConst.Origin.FF_SoM)
+    .setWiki('http://exvius.gamepedia.com/Randi')
+    .prismaticHorn(20)
+    .fairiesWrit(10)
+    .rainbowBloom(10)
+    .calamityGem(5)
+    .divineCrystal(5)
+    ;
+
 
 // IMPORTANT: ADD EVENT-EXCLUSIVE SUMMONS JUST OVER THIS COMMENT !!!
 // IMPORTANT: ADD EVENT-EXCLUSIVE SUMMONS JUST OVER THIS COMMENT !!!

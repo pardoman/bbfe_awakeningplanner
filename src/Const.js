@@ -71,6 +71,7 @@ class AweConsts {
         FF_BF:  { name: 'Brave Frontier', id: 97 },
         FF_Tac: { name: 'FF Tactics',     id: 98 },
         FF_T0:  { name: 'FF Type-0',      id: 90 },
+        FF_SoM: { name: 'Secret of Mana', id: 96 },
     };
 
     getOriginName = function(id) {
