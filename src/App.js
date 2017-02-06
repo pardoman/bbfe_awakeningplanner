@@ -61,7 +61,7 @@ class App extends Component {
           Assets and info gathered from
         </div>
         <div className="footer-credits"> 
-          <a href="https://exviuswiki.com/" target="blank">
+          <a href="http://exvius.gamepedia.com/" target="blank">
             <div className="exviusWikiContainer">
               <img
                 className="exviusWikiImage"
