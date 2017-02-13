@@ -427,7 +427,18 @@ SUMMONS.YUN = new Summon('Yun')
     .calamityGem(5)
     .divineCrystal(5)
     ;
-    
+
+import imgMarie from './images/summons/Unit-Marie-6.png';
+SUMMONS.MARIE = new Summon('Marie')
+    .setImage(imgMarie)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('http://exvius.gamepedia.com/Marie')
+    .rainbowBloom(20)
+    .fairiesWrit(10)
+    .calamityWrit(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
 
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
@@ -522,6 +533,18 @@ SUMMONS.RANDI = new Summon('Randi')
     .setImage(imgRandi)
     .setOrigin(AweConst.Origin.FF_SoM)
     .setWiki('http://exvius.gamepedia.com/Randi')
+    .prismaticHorn(20)
+    .fairiesWrit(10)
+    .rainbowBloom(10)
+    .calamityGem(5)
+    .divineCrystal(5)
+    ;
+
+import imgCupidArtemios from './images/summons/Unit-Cupid_Artemios-6.png';
+SUMMONS.CUPID_ARTEMIOS = new Summon('Cupid Artemios')
+    .setImage(imgCupidArtemios)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('http://exvius.gamepedia.com/Cupid_Artemios')
     .prismaticHorn(20)
     .fairiesWrit(10)
     .rainbowBloom(10)
