@@ -440,6 +440,43 @@ SUMMONS.MARIE = new Summon('Marie')
     .divineCrystal(5)
     ;
 
+import imgEmperor from './images/summons/Unit-Emperor-6.png';
+SUMMONS.EMPEROR = new Summon('Emperor')
+    .setImage(imgEmperor)
+    .setOrigin(AweConst.Origin.FF_II)
+    .setWiki('http://exvius.gamepedia.com/Emperor')
+    .calamityWrit(20)
+    .calamityGem(10)
+    .prismaticHorn(10)
+    .fairiesWrit(5)
+    .divineCrystal(5)
+    ;
+
+import imgOlive from './images/summons/Unit-Olive-6.png';
+SUMMONS.OLIVE = new Summon('Olive')
+    .setImage(imgOlive)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('http://exvius.gamepedia.com/Olive')
+    .divineCrystal(15)
+    .fairiesWrit(10)
+    .rainbowBloom(10)
+    .calamityGem(5)
+    .prismaticHorn(10)
+    ;
+    
+import imgShine from './images/summons/Unit-Shine-6.png';
+SUMMONS.SHINE = new Summon('Shine')
+    .setImage(imgShine)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('http://exvius.gamepedia.com/Shine')
+    .calamityGem(20)
+    .calamityWrit(10)
+    .prismaticHorn(10)
+    .rainbowBloom(5)
+    .divineCrystal(5)
+    ;
+
+
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
