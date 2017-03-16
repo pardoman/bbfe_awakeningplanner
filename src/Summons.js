@@ -476,6 +476,28 @@ SUMMONS.SHINE = new Summon('Shine')
     .divineCrystal(5)
     ;
 
+import imgYshtola from "./images/summons/Unit-Y'shtola-6.png";
+SUMMONS.YSHTOLA = new Summon("Y'shtola")
+    .setImage(imgYshtola)
+    .setOrigin(AweConst.Origin.FF_XIV)
+    .setWiki('http://exvius.gamepedia.com/Y%27shtola')
+    .fairiesWrit(10)
+    .rainbowBloom(20)
+    .prismaticHorn(5)
+    .calamityWrit(10)
+    ;
+
+
+import imgMinfilia from "./images/summons/Unit-Minfilia-6.png";
+SUMMONS.MINFILIA = new Summon("Minfilia")
+    .setImage(imgMinfilia)
+    .setOrigin(AweConst.Origin.FF_XIV)
+    .setWiki('http://exvius.gamepedia.com/Minfilia')
+    .fairiesWrit(10)
+    .rainbowBloom(20)
+    .prismaticHorn(5)
+    .calamityWrit(10)
+    ;
 
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
