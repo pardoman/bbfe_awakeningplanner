@@ -344,10 +344,10 @@ SUMMONS.DARKFINA = new Summon('Dark Fina')
     ;
 
 import imgOrlandu from './images/summons/Unit-Orlandu-6.png';
-SUMMONS.ORLANDU = new Summon('Orlandu')
+SUMMONS.ORLANDU = new Summon('Orlandeau')
     .setImage(imgOrlandu)
     .setOrigin(AweConst.Origin.FF_Tac)
-    .setWiki('http://exvius.gamepedia.com/Orlandu')
+    .setWiki('http://exvius.gamepedia.com/Orlandeau')
     .fairiesWrit(20)
     .rainbowBloom(10)
     .calamityWrit(10)
@@ -498,6 +498,19 @@ SUMMONS.MINFILIA = new Summon("Minfilia")
     .prismaticHorn(5)
     .calamityWrit(10)
     ;
+
+import imgSoleil from "./images/summons/Unit-Soleil-6.png";
+SUMMONS.SOLEIL = new Summon("Soleil")
+    .setImage(imgSoleil)
+    .setOrigin(AweConst.Origin.FF_Tac)
+    .setWiki('http://exvius.gamepedia.com/Soleil')
+    .rainbowBloom(20)
+    .fairiesWrit(10)
+    .prismaticHorn(10)
+    .calamityWrit(5)
+    .divineCrystal(5)
+    ;
+    
 
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
