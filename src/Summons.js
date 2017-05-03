@@ -510,7 +510,19 @@ SUMMONS.SOLEIL = new Summon("Soleil")
     .calamityWrit(5)
     .divineCrystal(5)
     ;
-    
+
+
+import imgFryevia from "./images/summons/Unit-Fryevia-6.png";
+SUMMONS.FRYEVIA = new Summon("Fryevia")
+    .setImage(imgFryevia)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('http://exvius.gamepedia.com/Fryevia')
+    .prismaticHorn(20)
+    .calamityWrit(10)
+    .rainbowBloom(10)
+    .fairiesWrit(5)
+    .divineCrystal(5)
+    ;
 
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
