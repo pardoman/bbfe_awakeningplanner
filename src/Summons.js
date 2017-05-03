@@ -547,6 +547,18 @@ SUMMONS.TRANCE_TERRA = new Summon("Trance Terra")
     .divineCrystal(5)
     ;
 
+import imgSetzer from "./images/summons/Unit-Setzer-6.png";
+SUMMONS.SETZER = new Summon("Setzer")
+    .setImage(imgSetzer)
+    .setOrigin(AweConst.Origin.FF_VI)
+    .setWiki('http://exvius.gamepedia.com/Setzer')
+    .calamityWrit(20)
+    .prismaticHorn(10)
+    .fairiesWrit(10)
+    .calamityGem(5)
+    .divineCrystal(5)
+    ;
+
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
