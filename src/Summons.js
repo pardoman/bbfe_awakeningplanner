@@ -571,6 +571,18 @@ SUMMONS.AILEEN = new Summon("Aileen")
     .divineCrystal(5)
     ;
 
+import imgSozhe from "./images/summons/Unit-Sozhe-6.png";
+SUMMONS.SOZHE = new Summon("Sozhe")
+    .setImage(imgSozhe)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exvius.gamepedia.com/Sozhe')
+    .prismaticHorn(20)
+    .rainbowBloom(10)
+    .fairiesWrit(10)
+    .calamityGem(5)
+    .divineCrystal(5)
+    ;
+
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
