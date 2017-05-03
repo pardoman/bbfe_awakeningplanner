@@ -535,6 +535,17 @@ SUMMONS.XON = new Summon("Xon")
     .divineCrystal(5)
     ;
     
+import imgTranceTerra from "./images/summons/Unit-Trance_Terra-6.png";
+SUMMONS.TRANCE_TERRA = new Summon("Trance Terra")
+    .setImage(imgTranceTerra)
+    .setOrigin(AweConst.Origin.FF_VI)
+    .setWiki('http://exvius.gamepedia.com/Trance_Terra')
+    .prismaticHorn(20)
+    .calamityWrit(10)
+    .fairiesWrit(10)
+    .rainbowBloom(5)
+    .divineCrystal(5)
+    ;
 
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
