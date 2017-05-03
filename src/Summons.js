@@ -559,6 +559,18 @@ SUMMONS.SETZER = new Summon("Setzer")
     .divineCrystal(5)
     ;
 
+import imgAileen from "./images/summons/Unit-Aileen-6.png";
+SUMMONS.AILEEN = new Summon("Aileen")
+    .setImage(imgAileen)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exvius.gamepedia.com/Aileen')
+    .prismaticHorn(20)
+    .rainbowBloom(10)
+    .fairiesWrit(10)
+    .calamityGem(5)
+    .divineCrystal(5)
+    ;
+
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
