@@ -606,6 +606,31 @@ SUMMONS.ZYRUS = new Summon("Zyrus")
     .fairiesWrit(5)
     .divineCrystal(15)
     ;
+
+import imgRem from "./images/summons/Unit-Rem-6.png";
+SUMMONS.REM = new Summon("Rem")
+    .setImage(imgRem)
+    .setOrigin(AweConst.Origin.FF_T0)
+    .setWiki('https://exvius.gamepedia.com/Rem')
+    .rainbowBloom(20)
+    .fairiesWrit(10)
+    .calamityWrit(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
+
+import imgKing from "./images/summons/Unit-King-6.png";
+SUMMONS.KING = new Summon("King")
+    .setImage(imgKing)
+    .setOrigin(AweConst.Origin.FF_T0)
+    .setWiki('https://exvius.gamepedia.com/King')
+    .prismaticHorn(20)
+    .fairiesWrit(10)
+    .rainbowBloom(10)
+    .calamityWrit(5)
+    .divineCrystal(5)
+    ;
+    
     
     
 
