@@ -583,6 +583,32 @@ SUMMONS.SOZHE = new Summon("Sozhe")
     .divineCrystal(5)
     ;
 
+import imgReberta from "./images/summons/Unit-Reberta-6.png";
+SUMMONS.REBERTA = new Summon("Reberta")
+    .setImage(imgReberta)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exvius.gamepedia.com/Reberta')
+    .calamityGem(10)
+    .calamityWrit(10)
+    .rainbowBloom(10)
+    .prismaticHorn(5)
+    .divineCrystal(15)
+    ;
+
+import imgZyrus from "./images/summons/Unit-Zyrus-6.png";
+SUMMONS.ZYRUS = new Summon("Zyrus")
+    .setImage(imgZyrus)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exvius.gamepedia.com/Zyrus')
+    .calamityWrit(10)
+    .calamityGem(10)
+    .prismaticHorn(10)
+    .fairiesWrit(5)
+    .divineCrystal(15)
+    ;
+    
+    
+
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
@@ -694,6 +720,19 @@ SUMMONS.CUPID_ARTEMIOS = new Summon('Cupid Artemios')
     .calamityGem(5)
     .divineCrystal(5)
     ;
+
+import imgMoogle from './images/summons/Unit-Moogle-6.png';
+SUMMONS.MOOGLE = new Summon('Moogle')
+    .setImage(imgMoogle)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('http://exvius.gamepedia.com/Moogle')
+    .rainbowBloom(20)
+    .fairiesWrit(10)
+    .prismaticHorn(10)
+    .calamityWrit(5)
+    .divineCrystal(5)
+    ;
+    
 
 
 // IMPORTANT: ADD EVENT-EXCLUSIVE SUMMONS JUST OVER THIS COMMENT !!!
