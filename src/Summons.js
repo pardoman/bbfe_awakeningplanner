@@ -703,6 +703,31 @@ SUMMONS.FINA = new Summon("Fina")
     .divineCrystal(3)
     ;
 
+import imgTidus from "./images/summons/Unit-Tidus-6.png";
+SUMMONS.TIDUS = new Summon("Tidus")
+    .setImage(imgTidus)
+    .setOrigin(AweConst.Origin.FF_X)
+    .setWiki('https://exvius.gamepedia.com/Tidus')
+    .fairiesWrit(20)
+    .rainbowBloom(10)
+    .calamityGem(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
+    
+import imgRikku from "./images/summons/Unit-Rikku-6.png";
+SUMMONS.RIKKU = new Summon("Rikku")
+    .setImage(imgRikku)
+    .setOrigin(AweConst.Origin.FF_X)
+    .setWiki('https://exvius.gamepedia.com/Rikku')
+    .prismaticHorn(20)
+    .fairiesWrit(10)
+    .rainbowBloom(10)
+    .calamityGem(5)
+    .divineCrystal(5)
+    ;
+    
+
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
