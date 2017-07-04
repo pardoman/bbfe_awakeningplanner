@@ -631,6 +631,30 @@ SUMMONS.KING = new Summon("King")
     .divineCrystal(5)
     ;
     
+import imgWilhelm from "./images/summons/Unit-Wilhelm-6.png";
+SUMMONS.WILHELM = new Summon("Wilhelm")
+    .setImage(imgWilhelm)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exvius.gamepedia.com/Wilhelm')
+    .calamityGem(20)
+    .calamityWrit(10)
+    .prismaticHorn(10)
+    .rainbowBloom(5)
+    .divineCrystal(5)
+    ;
+    
+import imgGrace from "./images/summons/Unit-Grace-6.png";
+SUMMONS.GRACE = new Summon("Grace")
+    .setImage(imgGrace)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exvius.gamepedia.com/Grace')
+    .prismaticHorn(20)
+    .fairiesWrit(10)
+    .rainbowBloom(10)
+    .calamityGem(5)
+    .divineCrystal(5)
+    ;
+    
     
     
 
