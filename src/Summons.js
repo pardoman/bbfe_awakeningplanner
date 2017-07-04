@@ -770,6 +770,30 @@ SUMMONS.CUPID_ARTEMIOS = new Summon('Cupid Artemios')
     .divineCrystal(5)
     ;
 
+import imgYda from './images/summons/Unit-Yda-6.png';
+SUMMONS.YDA = new Summon('Yda')
+    .setImage(imgYda)
+    .setOrigin(AweConst.Origin.FF_XIV)
+    .setWiki('http://exvius.gamepedia.com/Yda')
+    .calamityWrit(20)
+    .calamityGem(10)
+    .fairiesWrit(10)
+    .rainbowBloom(5)
+    .divineCrystal(5)
+    ;
+
+import imgPapalymo from './images/summons/Unit-Papalymo-6.png';
+SUMMONS.PAPALYMO = new Summon('Papalymo')
+    .setImage(imgPapalymo)
+    .setOrigin(AweConst.Origin.FF_XIV)
+    .setWiki('http://exvius.gamepedia.com/Papalymo')
+    .rainbowBloom(20)
+    .fairiesWrit(10)
+    .calamityGem(10)
+    .calamityWrit(5)
+    .divineCrystal(5)
+    ;
+
 import imgMoogle from './images/summons/Unit-Moogle-6.png';
 SUMMONS.MOOGLE = new Summon('Moogle')
     .setImage(imgMoogle)
