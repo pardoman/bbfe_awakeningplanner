@@ -502,7 +502,7 @@ SUMMONS.MINFILIA = new Summon("Minfilia")
 import imgSoleil from "./images/summons/Unit-Soleil-6.png";
 SUMMONS.SOLEIL = new Summon("Soleil")
     .setImage(imgSoleil)
-    .setOrigin(AweConst.Origin.FF_Tac)
+    .setOrigin(AweConst.Origin.FF_BE)
     .setWiki('http://exvius.gamepedia.com/Soleil')
     .rainbowBloom(20)
     .fairiesWrit(10)
