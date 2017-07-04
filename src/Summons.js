@@ -655,6 +655,41 @@ SUMMONS.GRACE = new Summon("Grace")
     .divineCrystal(5)
     ;
     
+import imgFohlen from "./images/summons/Unit-Fohlen-6.png";
+SUMMONS.FOHLEN = new Summon("Fohlen")
+    .setImage(imgFohlen)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exvius.gamepedia.com/Fohlen')
+    .prismaticHorn(20)
+    .fairiesWrit(10)
+    .rainbowBloom(10)
+    .calamityGem(5)
+    .divineCrystal(5)
+    ;
+    
+import imgIlias from "./images/summons/Unit-Ilias-6.png";
+SUMMONS.ILIAS = new Summon("Ilias")
+    .setImage(imgIlias)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exvius.gamepedia.com/Ilias')
+    .rainbowBloom(20)
+    .fairiesWrit(10)
+    .prismaticHorn(10)
+    .calamityWrit(5)
+    .divineCrystal(5)
+    ;
+    
+import imgAmelia from "./images/summons/Unit-Amelia-6.png";
+SUMMONS.AMELIA = new Summon("Amelia")
+    .setImage(imgAmelia)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exvius.gamepedia.com/Amelia')
+    .calamityGem(20)
+    .calamityWrit(10)
+    .prismaticHorn(10)
+    .rainbowBloom(5)
+    .divineCrystal(5)
+    ;
     
     
 
