@@ -829,6 +829,30 @@ SUMMONS.PAPALYMO = new Summon('Papalymo')
     .divineCrystal(5)
     ;
 
+import imgTilith from './images/summons/Unit-Tilith-6.png';
+SUMMONS.TILITH = new Summon('Tilith')
+    .setImage(imgTilith)
+    .setOrigin(AweConst.Origin.FF_BF)
+    .setWiki('http://exvius.gamepedia.com/Tilith')
+    .rainbowBloom(20)
+    .fairiesWrit(10)
+    .calamityWrit(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
+
+import imgMaxwell from './images/summons/Unit-Maxwell-6.png';
+SUMMONS.MAXWELL = new Summon('Maxwell')
+    .setImage(imgMaxwell)
+    .setOrigin(AweConst.Origin.FF_BF)
+    .setWiki('http://exvius.gamepedia.com/Maxwell')
+    .calamityGem(20)
+    .calamityWrit(10)
+    .rainbowBloom(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
+
 import imgMoogle from './images/summons/Unit-Moogle-6.png';
 SUMMONS.MOOGLE = new Summon('Moogle')
     .setImage(imgMoogle)
