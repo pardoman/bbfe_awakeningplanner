@@ -691,7 +691,17 @@ SUMMONS.AMELIA = new Summon("Amelia")
     .divineCrystal(5)
     ;
     
-    
+import imgFina from "./images/summons/Unit-Fina-6.png";
+SUMMONS.FINA = new Summon("Fina")
+    .setImage(imgFina)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exvius.gamepedia.com/Fina')
+    .rainbowBloom(15)
+    .fairiesWrit(8)
+    .calamityWrit(5)
+    .prismaticHorn(3)
+    .divineCrystal(3)
+    ;
 
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
@@ -850,6 +860,18 @@ SUMMONS.MAXWELL = new Summon('Maxwell')
     .calamityWrit(10)
     .rainbowBloom(10)
     .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
+
+import imgVargas from './images/summons/Unit-Vargas-6.png';
+SUMMONS.VARGAS = new Summon('Vargas')
+    .setImage(imgVargas)
+    .setOrigin(AweConst.Origin.FF_BF)
+    .setWiki('http://exvius.gamepedia.com/Vargas')
+    .prismaticHorn(20)
+    .fairiesWrit(10)
+    .rainbowBloom(10)
+    .calamityGem(5)
     .divineCrystal(5)
     ;
 
