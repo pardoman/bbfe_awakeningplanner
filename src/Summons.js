@@ -727,6 +727,43 @@ SUMMONS.RIKKU = new Summon("Rikku")
     .divineCrystal(5)
     ;
     
+import imgZargabaath from "./images/summons/Unit-Zargabaath-6.png";
+SUMMONS.ZARGABAATH = new Summon("Zargabaath")
+    .setImage(imgZargabaath)
+    .setOrigin(AweConst.Origin.FF_XII)
+    .setWiki('https://exvius.gamepedia.com/Zargabaath')
+    .divineCrystal(15)
+    .rainbowBloom(5)
+    .calamityGem(10)
+    .prismaticHorn(10)
+    .calamityWrit(10)
+    ;
+
+import imgAshe from "./images/summons/Unit-Ashe-6.png";
+SUMMONS.ASHE = new Summon("Ashe")
+    .setImage(imgAshe)
+    .setOrigin(AweConst.Origin.FF_XII)
+    .setWiki('https://exvius.gamepedia.com/Ashe')
+    .rainbowBloom(20)
+    .fairiesWrit(10)
+    .prismaticHorn(10)
+    .calamityWrit(5)
+    .divineCrystal(5)
+    ;
+
+import imgRasler from "./images/summons/Unit-Rasler-6.png";
+SUMMONS.RASLER = new Summon("Rasler")
+    .setImage(imgRasler)
+    .setOrigin(AweConst.Origin.FF_XII)
+    .setWiki('https://exvius.gamepedia.com/Rasler')
+    .calamityGem(20)
+    .calamityWrit(10)
+    .prismaticHorn(10)
+    .rainbowBloom(5)
+    .divineCrystal(5)
+    ;
+
+
 
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
