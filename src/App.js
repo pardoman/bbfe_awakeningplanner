@@ -9,6 +9,7 @@ import FilterSummons from './FilterSummons';
 import AddSummon from './AddSummon';
 import ContentSummons from './ContentSummons';
 import Awakener3d from './awakener3d/Awakener3d';
+import MaterialReference from './MaterialReference';
 
 import './App.css';
 import './table.css';
@@ -56,8 +57,9 @@ class App extends Component {
           <img src={refiaAnimation} alt="refia_victory" />
         </div>
 
+        <MaterialReference />
         
-        <div>
+        <div className="disclaimer">
           Assets and info gathered from
         </div>
         <div className="footer-credits"> 

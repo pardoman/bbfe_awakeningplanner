@@ -13,32 +13,38 @@ class AweConsts {
     FairiesWrit = {
         id: 0,
         name: "Fairies' Writ",
-        src: fairiesWrit
+        src: fairiesWrit,
+        url: 'https://exvius.gamepedia.com/Fairies%27_Writ'
     };
     PrismaticHorn = {
         id: 1,
         name: "Prismatic Horn",
-        src: horn
+        src: horn,
+        url: 'https://exvius.gamepedia.com/Prismatic_Horn'
     };
     CalamityGem = {
         id: 2,
         name: "Calamity Gem",
-        src: calamityGem
+        src: calamityGem,
+        url: 'https://exvius.gamepedia.com/Calamity_Gem'
     };
     RainbowBloom = {
         id: 3,
         name: "Rainbow Bloom",
-        src: bloom
+        src: bloom,
+        url: 'https://exvius.gamepedia.com/Rainbow_Bloom'
     };
     CalamityWrit = {
         id: 4,
         name: "Calamity Writ",
-        src: calamityWrit
+        src: calamityWrit,
+        url: 'https://exvius.gamepedia.com/Calamity_Writ'
     };
     DivineCrystal = {
         id: 5,
         name: "Divine Crystal",
-        src: crystal
+        src: crystal,
+        url: 'https://exvius.gamepedia.com/Divine_Crystal'
     };
 
     materials = [

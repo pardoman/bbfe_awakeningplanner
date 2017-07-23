@@ -52,3 +52,9 @@ body {
 .bottom-padding {
   margin-bottom: 50px;
 }
+
+.disclaimer {
+    border-top: dashed 1px black;
+    padding-top: 26px;
+    margin-top: 50px;
+}
