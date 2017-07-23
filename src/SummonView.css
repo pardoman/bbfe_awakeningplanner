@@ -45,3 +45,10 @@
     outline: none;
 	text-shadow:0px 1px 0px #2f6627;
 }
+
+.background-material-icon {
+    position: absolute;
+    opacity: 0.3;
+    margin-top: -37px;
+    margin-left: -13px;
+}

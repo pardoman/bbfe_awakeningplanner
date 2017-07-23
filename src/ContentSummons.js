@@ -44,10 +44,10 @@ class ContentSummons extends Component {
                 <tr>
                     <td></td>
                     {hasSummons &&
-                        <td colSpan="6">Your units ({summonCount})</td>
+                        <td colSpan="6" className="CallToActionMessage">Your units ({summonCount})</td>
                     }
                     {!hasSummons &&
-                        <td colSpan="6">Add the units you want to awaken!</td>
+                        <td colSpan="6" className="CallToActionMessage">Add units you want to awaken!</td>
                     }
                 </tr>
 
@@ -60,7 +60,7 @@ class ContentSummons extends Component {
                                 summonKey={summonKey}
                             />;
                 })}
-                {hasSummons && <AweHeader />}
+                
 
                 {/* The Awakening button */}
                 {hasSummons && 

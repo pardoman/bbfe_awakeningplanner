@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import AweConst from './Const';
 import inventory from './Inventory';
 import SummonData from './Summons';
 
@@ -60,6 +61,7 @@ class SummonView extends Component {
                                     value={matCount}
                                     readOnly
                                 />
+                                <img src={AweConst.materials[index].src} className="background-material-icon" />
                             </td>;
                 })}
                 {/* CASE 2 - Display a big button to awake this unit! */}
