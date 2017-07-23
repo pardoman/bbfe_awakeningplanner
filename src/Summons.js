@@ -949,6 +949,29 @@ SUMMONS.MOOGLE = new Summon('Moogle')
     .divineCrystal(5)
     ;
     
+import imgBeachTimeFina from './images/summons/Unit-Beach_Time_Fina-6.png';
+SUMMONS.BEACH_TIME_FINA = new Summon('Beach Time Fina')
+    .setImage(imgBeachTimeFina)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('http://exvius.gamepedia.com/Beach_Time_Fina')
+    .rainbowBloom(20)
+    .fairiesWrit(10)
+    .calamityWrit(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
+
+import imgSeabreeze_Dark_Fina from './images/summons/Unit-Seabreeze_Dark_Fina-6.png';
+SUMMONS.SEABREEZE_DARK_FINA = new Summon('Seabreeze Dark Fina')
+    .setImage(imgSeabreeze_Dark_Fina)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('http://exvius.gamepedia.com/Seabreeze_Dark_Fina')
+    .calamityGem(20)
+    .calamityWrit(10)
+    .rainbowBloom(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
 
 
 // IMPORTANT: ADD EVENT-EXCLUSIVE SUMMONS JUST OVER THIS COMMENT !!!
