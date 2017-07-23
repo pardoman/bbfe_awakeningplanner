@@ -763,6 +763,43 @@ SUMMONS.RASLER = new Summon("Rasler")
     .divineCrystal(5)
     ;
 
+import imgLunera from "./images/summons/Unit-Lunera-6.png";
+SUMMONS.LUNERA = new Summon("Lunera")
+    .setImage(imgLunera)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exvius.gamepedia.com/Lunera')
+    .rainbowBloom(20)
+    .prismaticHorn(10)
+    .fairiesWrit(10)
+    .calamityWrit(5)
+    .divineCrystal(5)
+    ;
+
+import imgBran from "./images/summons/Unit-Bran-6.png";
+SUMMONS.BRAN = new Summon("Bran")
+    .setImage(imgBran)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exvius.gamepedia.com/Bran')
+    .prismaticHorn(20)
+    .calamityWrit(10)
+    .fairiesWrit(10)
+    .rainbowBloom(5)
+    .divineCrystal(5)
+    ;
+
+import imgHelena from "./images/summons/Unit-Helena-6.png";
+SUMMONS.HELENA = new Summon("Helena")
+    .setImage(imgHelena)
+    .setOrigin(AweConst.Origin.FF_BE)
+    .setWiki('https://exvius.gamepedia.com/Helena')
+    .prismaticHorn(20)
+    .fairiesWrit(10)
+    .rainbowBloom(10)
+    .calamityGem(5)
+    .divineCrystal(5)
+    ;
+
+
 
 
 // IMPORTANT: ADD NEW SUMMONS JUST OVER THIS COMMENT, AFTER ALL OTHER EXISTING SUMMONS !!!
