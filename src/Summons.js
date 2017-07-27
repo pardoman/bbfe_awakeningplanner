@@ -824,6 +824,32 @@ SUMMONS.GAFFGARION = new Summon("Gaffgarion")
     ;
 
 
+import imgOrran from "./images/summons/Unit-Orran-6.png";
+SUMMONS.ORRAN = new Summon("Orran")
+    .setImage(imgOrran)
+    .setOrigin(AweConst.Origin.FF_Tac)
+    .setWiki('https://exvius.gamepedia.com/Orran')
+    .calamityWrit(20)
+    .fairiesWrit(10)
+    .prismaticHorn(10)
+    .calamityGem(5)
+    .divineCrystal(5)
+    ;
+
+
+import imgMeliadoul from "./images/summons/Unit-Meliadoul-6.png";
+SUMMONS.MELIADOUL = new Summon("Meliadoul")
+    .setImage(imgMeliadoul)
+    .setOrigin(AweConst.Origin.FF_Tac)
+    .setWiki('https://exvius.gamepedia.com/Meliadoul')
+    .prismaticHorn(20)
+    .fairiesWrit(10)
+    .rainbowBloom(10)
+    .calamityGem(5)
+    .divineCrystal(5)
+    ;
+
+
 
 
 
