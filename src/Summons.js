@@ -799,6 +799,31 @@ SUMMONS.HELENA = new Summon("Helena")
     .divineCrystal(5)
     ;
 
+import imgAgrias from "./images/summons/Unit-Agrias-6.png";
+SUMMONS.AGRIAS = new Summon("Agrias")
+    .setImage(imgAgrias)
+    .setOrigin(AweConst.Origin.FF_Tac)
+    .setWiki('https://exvius.gamepedia.com/Agrias')
+    .fairiesWrit(20)
+    .prismaticHorn(10)
+    .calamityGem(10)
+    .calamityWrit(5)
+    .divineCrystal(5)
+    ;
+
+import imgGaffgarion from "./images/summons/Unit-Gaffgarion-6.png";
+SUMMONS.GAFFGARION = new Summon("Gaffgarion")
+    .setImage(imgGaffgarion)
+    .setOrigin(AweConst.Origin.FF_Tac)
+    .setWiki('https://exvius.gamepedia.com/Gaffgarion')
+    .calamityWrit(20)
+    .calamityGem(10)
+    .prismaticHorn(10)
+    .fairiesWrit(5)
+    .divineCrystal(5)
+    ;
+
+
 
 
 
