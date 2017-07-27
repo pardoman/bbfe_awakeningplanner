@@ -849,6 +849,29 @@ SUMMONS.MELIADOUL = new Summon("Meliadoul")
     .divineCrystal(5)
     ;
 
+import imgKnightDelita from "./images/summons/Unit-Knight_Delita-6.png";
+SUMMONS.KNIGHT_DELITA = new Summon("Knight Delita")
+    .setImage(imgKnightDelita)
+    .setOrigin(AweConst.Origin.FF_Tac)
+    .setWiki('https://exvius.gamepedia.com/Knight_Delita')
+    .fairiesWrit(20)
+    .prismaticHorn(10)
+    .calamityGem(10)
+    .calamityWrit(5)
+    .divineCrystal(5)
+    ;
+
+import imgMercenaryRamza from "./images/summons/Unit-Mercenary_Ramza-6.png";
+SUMMONS.MERCENARY_RAMZA = new Summon("Mercenary Ramza")
+    .setImage(imgMercenaryRamza)
+    .setOrigin(AweConst.Origin.FF_Tac)
+    .setWiki('https://exvius.gamepedia.com/Mercenary_Ramza')
+    .fairiesWrit(20)
+    .rainbowBloom(10)
+    .calamityWrit(10)
+    .prismaticHorn(5)
+    .divineCrystal(5)
+    ;
 
 
 
